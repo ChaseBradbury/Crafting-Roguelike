@@ -1,18 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecipeSO : MonoBehaviour
+[CreateAssetMenu(menuName = "ScriptableObjects/Recipe")]
+public class RecipeSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Input")]
+    public ItemSO northSlot;
+    public ItemSO eastSlot;
+    public ItemSO southSlot;
+    public ItemSO westSlot;
+    [Tooltip("Unique code for the item.")]
+    public bool orderMatters;
+    [Header("Output")]
+    public ItemSO outputItem;
 }
