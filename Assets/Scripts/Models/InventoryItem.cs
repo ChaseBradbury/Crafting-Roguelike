@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryItem : MonoBehaviour
+public class InventoryItem
 {
     public ItemSO itemSO;
     // Currently not stacking, but "amount" will be useful if I decide to

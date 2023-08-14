@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
     private Inventory inventory;
     [SerializeField] private Transform inventoryContent;
     [SerializeField] private Transform itemTemplate;
-    [SerializeField] float slotSize = 100f;
+    [SerializeField] float slotSize = 110f;
     [SerializeField] int rowLength = 6;
+    [SerializeField] float offset = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +33,26 @@ public class InventoryController : MonoBehaviour
 
     public void RefreshUI()
     {
+        foreach (Transform child in inventoryContent) { Destroy(child.gameObject); }
         int x = 0;
         int y = 0;
         foreach (KeyValuePair<string, InventoryItem> inventoryItem in inventory.Items.OrderBy(i => i.Value.itemSO.displayOrder))
         {
+            ItemSO item = inventoryItem.Value.itemSO;
+            int amount = inventoryItem.Value.amount;
             RectTransform itemTransform = Instantiate(itemTemplate, inventoryContent).GetComponent<RectTransform>();
             itemTransform.gameObject.SetActive(true);
-            itemTransform.anchoredPosition = new Vector2(x*slotSize, y*slotSize);
+            itemTransform.anchoredPosition = new Vector2(x*slotSize + offset, -y*slotSize - offset);
+            itemTransform.Find("Image").GetComponent<Image>().sprite = item.icon;
+            itemTransform.Find("Name").GetComponent<TextMeshProUGUI>().text = item.itemDisplayName;
+            if (amount > 1)
+            {
+                Transform amountTransform = itemTransform.Find("Amount");
+                amountTransform.gameObject.SetActive(true);
+                amountTransform.Find("Number").GetComponent<TextMeshProUGUI>().text = amount.ToString();
+            }
             ++x;
-            if (x > rowLength)
+            if (x >= rowLength)
             {
                 x = 0;
                 ++y;
