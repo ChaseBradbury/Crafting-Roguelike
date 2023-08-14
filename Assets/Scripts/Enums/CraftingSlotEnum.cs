@@ -10,5 +10,6 @@ public enum CraftingSlotDirection
     East,
     South,
     West,
-    Null
+    Null,
+    Output
 }

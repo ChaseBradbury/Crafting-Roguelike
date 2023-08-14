@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private InventoryController inventoryController;
     [SerializeField] private CraftingController craftingController;
     [SerializeField] private ItemSO[] testList;
-    [SerializeField] private Image dndCursor;
+    [SerializeField] private CursorController dndCursor;
 
 
     // Start is called before the first frame update
@@ -70,9 +70,14 @@ public class PlayerManager : MonoBehaviour
     {
         if (heldItem != null && craftingController.IsSlotEmpty(direction))
         {
+            ItemSO tempItem = null;
+            if (!craftingController.IsSlotEmpty(direction))
+            {
+                tempItem = craftingController.RemoveFromSlot(direction);
+            }
             craftingController.AddToSlot(direction, heldItem);
             dndCursor.gameObject.SetActive(false);
-            heldItem = null;
+            heldItem = tempItem;
         }
     }
 
@@ -82,15 +87,12 @@ public class PlayerManager : MonoBehaviour
         {
             ItemSO item = craftingController.RemoveFromSlot(direction);
             heldItem = item;
+            dndCursor.FollowMouse();
             dndCursor.gameObject.SetActive(true);
             dndCursor.GetComponent<Image>().sprite = item.icon;
         }
     }
 
-    public void OnMouseUpCraftingNorth() => OnMouseUpCrafting(CraftingSlotDirection.North);
-    public void OnMouseUpCraftingEast() => OnMouseUpCrafting(CraftingSlotDirection.East);
-    public void OnMouseUpCraftingSouth() => OnMouseUpCrafting(CraftingSlotDirection.South);
-    public void OnMouseUpCraftingWest() => OnMouseUpCrafting(CraftingSlotDirection.West);
     public void OnMouseDownCraftingNorth() => OnMouseDownCrafting(CraftingSlotDirection.North);
     public void OnMouseDownCraftingEast() => OnMouseDownCrafting(CraftingSlotDirection.East);
     public void OnMouseDownCraftingSouth() => OnMouseDownCrafting(CraftingSlotDirection.South);

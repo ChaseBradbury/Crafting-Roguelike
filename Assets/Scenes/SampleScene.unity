@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryController: {fileID: 108079292}
-  craftingController: {fileID: 2128718074}
+  craftingController: {fileID: 1036726549}
   testList:
   - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
   - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
@@ -240,7 +240,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
   - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
   - {fileID: 11400000, guid: 4d7e73301a5f97a4e9a6752ba16e037c, type: 2}
-  dndCursor: {fileID: 354846293}
+  dndCursor: {fileID: 354846295}
 --- !u!4 &94899218
 Transform:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
   itemTemplate: {fileID: 776876145}
   slotSize: 110
   rowLength: 6
-  offset: 5
+  offset: 10
 --- !u!114 &108079293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,10 +918,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 108079291}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 140, y: 0.00012207031}
-  m_SizeDelta: {x: -355.18915, y: 461.7773}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -340, y: 270}
+  m_SizeDelta: {x: 680, y: 500}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &607304113
 MonoBehaviour:
@@ -1319,6 +1319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1036726548}
+  - component: {fileID: 1036726549}
   m_Layer: 5
   m_Name: Crafting Container
   m_TagString: Untagged
@@ -1348,6 +1349,27 @@ RectTransform:
   m_AnchoredPosition: {x: -480, y: 270}
   m_SizeDelta: {x: 960, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1036726549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036726547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c3767c7b37d824fb68d7db484d3d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CraftingArea: {fileID: 2128718071}
+  craftingAreaSize: 200
+  northCraftingSlot: {fileID: 1633728391}
+  eastCraftingSlot: {fileID: 1206957539}
+  southCraftingSlot: {fileID: 1733349439}
+  westCraftingSlot: {fileID: 1254330954}
+  OutputSlot: {fileID: 1178022856}
+  recipes:
+  - {fileID: 11400000, guid: d15740f730f4e7f49b490b1e3c62f335, type: 2}
 --- !u!1 &1052871734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,6 +1539,7 @@ GameObject:
   - component: {fileID: 1178022853}
   - component: {fileID: 1178022855}
   - component: {fileID: 1178022854}
+  - component: {fileID: 1178022856}
   m_Layer: 5
   m_Name: Output
   m_TagString: Untagged
@@ -1581,6 +1604,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178022852}
   m_CullTransparentMesh: 1
+--- !u!114 &1178022856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178022852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1fae97c6bb03884ebd0b3bf7962e4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptySprite: {fileID: 21300000, guid: 0ab0beac308a9ab45a3c4df95ab04865, type: 3}
 --- !u!1 &1206957535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,6 +1629,7 @@ GameObject:
   - component: {fileID: 1206957538}
   - component: {fileID: 1206957537}
   - component: {fileID: 1206957539}
+  - component: {fileID: 1206957540}
   m_Layer: 5
   m_Name: East
   m_TagString: Untagged
@@ -1607,18 +1644,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206957535}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2128718071}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -10, y: 10}
+  m_AnchoredPosition: {x: -60.000008, y: 60.000008}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206957537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,7 +1676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0ab0beac308a9ab45a3c4df95ab04865, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1669,6 +1706,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fae97c6bb03884ebd0b3bf7962e4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
+--- !u!114 &1206957540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206957535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 94899217}
+          m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+          m_MethodName: OnMouseDownCraftingEast
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1247375119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,6 +1823,7 @@ GameObject:
   - component: {fileID: 1254330953}
   - component: {fileID: 1254330952}
   - component: {fileID: 1254330954}
+  - component: {fileID: 1254330955}
   m_Layer: 5
   m_Name: West
   m_TagString: Untagged
@@ -1770,18 +1838,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254330950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2128718071}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchoredPosition: {x: 60.000008, y: -60.000015}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1254330952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,7 +1870,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0ab0beac308a9ab45a3c4df95ab04865, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1832,6 +1900,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fae97c6bb03884ebd0b3bf7962e4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
+--- !u!114 &1254330955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254330950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 94899217}
+          m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+          m_MethodName: OnMouseDownCraftingWest
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1274129567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,18 +2736,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633728386}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2128718071}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -10}
+  m_AnchoredPosition: {x: -60.000008, y: -60.00001}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1633728388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2670,7 +2768,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0ab0beac308a9ab45a3c4df95ab04865, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2729,6 +2827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fae97c6bb03884ebd0b3bf7962e4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
 --- !u!1 &1666295662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,18 +2930,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733349434}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2128718071}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 10}
+  m_AnchoredPosition: {x: 60.000023, y: 60.000015}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733349436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2863,7 +2962,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0ab0beac308a9ab45a3c4df95ab04865, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2922,6 +3021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fae97c6bb03884ebd0b3bf7962e4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
 --- !u!1 &1912575153
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,7 +3537,6 @@ GameObject:
   - component: {fileID: 2128718071}
   - component: {fileID: 2128718073}
   - component: {fileID: 2128718072}
-  - component: {fileID: 2128718074}
   m_Layer: 5
   m_Name: Crafting Area
   m_TagString: Untagged
@@ -3488,7 +3587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d9b07e13bde2918489f6087e0e7ae076, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af14d4624fa74714ba0055f8a8d6ec05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3506,22 +3605,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128718070}
   m_CullTransparentMesh: 1
---- !u!114 &2128718074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128718070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64c3767c7b37d824fb68d7db484d3d75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  northCraftingSlot: {fileID: 1633728391}
-  eastCraftingSlot: {fileID: 1206957539}
-  southCraftingSlot: {fileID: 1733349439}
-  westCraftingSlot: {fileID: 1254330954}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

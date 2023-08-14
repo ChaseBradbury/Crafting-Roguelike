@@ -16,5 +16,5 @@ MonoBehaviour:
   eastSlot: {fileID: 0}
   southSlot: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
   westSlot: {fileID: 0}
-  orderMatters: 0
-  outputItem: {fileID: 0}
+  positionMatters: 1
+  outputItem: {fileID: 11400000, guid: 4d7e73301a5f97a4e9a6752ba16e037c, type: 2}

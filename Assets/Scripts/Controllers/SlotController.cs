@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SlotController : MonoBehaviour
 {
     private ItemSO itemSO;
+    [SerializeField] private Sprite emptySprite;
 
     public ItemSO ItemSO { get => itemSO; set => itemSO = value; }
 
@@ -24,7 +25,8 @@ public class SlotController : MonoBehaviour
     {
         ItemSO tmpItem = itemSO;
         itemSO = null;
-        gameObject.GetComponent<Image>().sprite = null;
+        gameObject.GetComponent<Image>().sprite = emptySprite;
         return tmpItem;
     }
+
 }

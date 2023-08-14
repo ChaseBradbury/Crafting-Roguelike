@@ -6,10 +6,15 @@ public class CursorController : MonoBehaviour
 {
     void Awake()
     {
-        transform.position = Input.mousePosition;
+        FollowMouse();
     }
 
     void Update()
+    {
+        FollowMouse();
+    }
+
+    public void FollowMouse()
     {
         transform.position = Input.mousePosition;
     }

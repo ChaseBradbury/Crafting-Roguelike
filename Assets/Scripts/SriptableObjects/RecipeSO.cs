@@ -11,8 +11,8 @@ public class RecipeSO : ScriptableObject
     public ItemSO eastSlot;
     public ItemSO southSlot;
     public ItemSO westSlot;
-    [Tooltip("Unique code for the item.")]
-    public bool orderMatters;
+    [Tooltip("When checked, the player must place in the correct slots.")]
+    public bool positionMatters;
     [Header("Output")]
     public ItemSO outputItem;
 }
