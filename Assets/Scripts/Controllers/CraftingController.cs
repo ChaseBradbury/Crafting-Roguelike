@@ -12,7 +12,7 @@ public class CraftingController : MonoBehaviour
     [SerializeField] private SlotController eastCraftingSlot;
     [SerializeField] private SlotController southCraftingSlot;
     [SerializeField] private SlotController westCraftingSlot;
-    [SerializeField] private SlotController OutputSlot;
+    [SerializeField] private SlotController outputSlot;
     [SerializeField] private RecipeSO[] recipes;
 
     public bool IsSlotEmpty(CraftingSlotDirection direction)
@@ -95,11 +95,11 @@ public class CraftingController : MonoBehaviour
         ItemSO craftedItem = GetCraftedItem();
         if(craftedItem != null)
         {
-            OutputSlot.AddSlotItem(craftedItem);
+            outputSlot.AddSlotItem(craftedItem);
         }
         else
         {
-            OutputSlot.RemoveSlotItem();
+            outputSlot.RemoveSlotItem();
         }
     }
 
@@ -158,9 +158,21 @@ public class CraftingController : MonoBehaviour
                 return southCraftingSlot;
             case CraftingSlotDirection.West:
                 return westCraftingSlot;
+            case CraftingSlotDirection.Output:
+                return outputSlot;
             default:
                 return null;
                     
         }
+    }
+
+    public ItemSO Craft()
+    {
+        ItemSO outputItem = outputSlot.RemoveSlotItem();
+        RemoveFromSlot(CraftingSlotDirection.North);
+        RemoveFromSlot(CraftingSlotDirection.East);
+        RemoveFromSlot(CraftingSlotDirection.South);
+        RemoveFromSlot(CraftingSlotDirection.West);
+        return outputItem;
     }
 }

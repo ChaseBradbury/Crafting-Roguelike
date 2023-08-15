@@ -97,4 +97,16 @@ public class PlayerManager : MonoBehaviour
     public void OnMouseDownCraftingEast() => OnMouseDownCrafting(CraftingSlotDirection.East);
     public void OnMouseDownCraftingSouth() => OnMouseDownCrafting(CraftingSlotDirection.South);
     public void OnMouseDownCraftingWest() => OnMouseDownCrafting(CraftingSlotDirection.West);
+
+    public void OnMouseDownOutput(ItemSO outputItem)
+    {
+        if (heldItem == null && !craftingController.IsSlotEmpty(CraftingSlotDirection.Output))
+        {
+            ItemSO item = craftingController.Craft();
+            heldItem = item;
+            dndCursor.FollowMouse();
+            dndCursor.gameObject.SetActive(true);
+            dndCursor.GetComponent<Image>().sprite = item.icon;
+        }
+    }
 }

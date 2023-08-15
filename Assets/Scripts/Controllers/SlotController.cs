@@ -7,6 +7,8 @@ public class SlotController : MonoBehaviour
 {
     private ItemSO itemSO;
     [SerializeField] private Sprite emptySprite;
+    [SerializeField] private PlayerManager playerManager;
+
 
     public ItemSO ItemSO { get => itemSO; set => itemSO = value; }
 
@@ -18,15 +20,25 @@ public class SlotController : MonoBehaviour
     public void AddSlotItem(ItemSO item)
     {
         itemSO = item;
-        gameObject.GetComponent<Image>().sprite = itemSO.icon;
+        transform.Find("Icon").GetComponent<Image>().sprite = itemSO.icon;
     }
 
     public ItemSO RemoveSlotItem()
     {
         ItemSO tmpItem = itemSO;
         itemSO = null;
-        gameObject.GetComponent<Image>().sprite = emptySprite;
+        transform.Find("Icon").GetComponent<Image>().sprite = emptySprite;
         return tmpItem;
+    }
+
+    public void OnMouseDownInventory()
+    {
+        playerManager.OnMouseDownInventoryItem(itemSO);
+    }
+
+    public void OnMouseDownOutput()
+    {
+        playerManager.OnMouseDownOutput(itemSO);
     }
 
 }

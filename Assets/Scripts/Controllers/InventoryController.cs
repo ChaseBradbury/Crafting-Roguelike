@@ -43,7 +43,7 @@ public class InventoryController : MonoBehaviour
             RectTransform itemTransform = Instantiate(itemTemplate, inventoryContent).GetComponent<RectTransform>();
             itemTransform.gameObject.SetActive(true);
             itemTransform.anchoredPosition = new Vector2(x*slotSize + offset, -y*slotSize - offset);
-            itemTransform.Find("Image").GetComponent<Image>().sprite = item.icon;
+            itemTransform.GetComponent<SlotController>().AddSlotItem(item);
             itemTransform.Find("Name").GetComponent<TextMeshProUGUI>().text = item.itemDisplayName;
             if (amount > 1)
             {
