@@ -14,6 +14,6 @@ public class ItemSO : ScriptableObject
     [Tooltip("Image displayed in the inventory.")]
     public Sprite icon;
 
-    [Tooltip("Where the item is relative to other items in the inventory (ascending).")]
-    public int displayOrder;
+    [Tooltip("Longest crafting chain to make the item. Determines display order (ascending, followed by display name).")]
+    public int tier;
 }

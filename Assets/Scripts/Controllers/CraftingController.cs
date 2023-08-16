@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Linq;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
@@ -136,14 +137,19 @@ public class CraftingController : MonoBehaviour
 
     public string GetCraftingCode(ItemSO north, ItemSO east, ItemSO south, ItemSO west, bool positionMatters)
     {
-        string northCode = north == null ? " " : north.itemCode;
-        string eastCode = east == null ? " " : east.itemCode;
-        string southCode = south == null ? " " : south.itemCode;
-        string westCode = west == null ? " " : west.itemCode;
-        // if (positionMatters)
+        ItemSO[] items = new ItemSO[]{north, east, south, west};
+
+        if (!positionMatters)
         {
-            return northCode + eastCode + southCode + westCode;
+            items = items.OrderBy(item => item == null ? -1 : item.tier).ThenBy(item => item == null ? "" : item.itemDisplayName).ToArray();
         }
+
+        string code = "";
+        foreach (ItemSO item in items)
+        {
+            code += item == null ? " " : item.itemCode;
+        }
+        return code;
     }
 
     public SlotController GetSlotController(CraftingSlotDirection direction)

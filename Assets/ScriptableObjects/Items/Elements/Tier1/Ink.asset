@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688318352a72b6747a152d59376d2c56, type: 3}
-  m_Name: Energy
+  m_Name: Ink
   m_EditorClassIdentifier: 
-  itemCode: element_energy
-  itemDisplayName: Energy
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  displayOrder: 1
+  itemCode: element_ink
+  itemDisplayName: Ink
+  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  displayOrder: 0
+  tier: 1

@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688318352a72b6747a152d59376d2c56, type: 3}
-  m_Name: Sand
+  m_Name: Cement
   m_EditorClassIdentifier: 
-  itemCode: element_sand
-  itemDisplayName: Sand
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  displayOrder: 30
+  itemCode: element_cement
+  itemDisplayName: Cement
+  icon: {fileID: 21300000, guid: 5241b6cf2c7f4414f9a8c375aa1766e7, type: 3}
+  displayOrder: 500
+  tier: 2

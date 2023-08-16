@@ -15,4 +15,4 @@ MonoBehaviour:
   itemCode: element_wood
   itemDisplayName: Wood
   icon: {fileID: 21300000, guid: d04b0bb216523064d847e91092c8bf90, type: 3}
-  displayOrder: 1
+  displayOrder: 2

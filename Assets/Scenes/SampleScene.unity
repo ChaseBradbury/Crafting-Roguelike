@@ -236,10 +236,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
   - {fileID: 11400000, guid: 18505109d80411f419469f178fd49314, type: 2}
   - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-  - {fileID: 11400000, guid: cb34b479f936de54d8099acd31c34aef, type: 2}
+  - {fileID: 11400000, guid: 18505109d80411f419469f178fd49314, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
+  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
   - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
   - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
-  - {fileID: 11400000, guid: 4d7e73301a5f97a4e9a6752ba16e037c, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
   dndCursor: {fileID: 354846295}
 --- !u!4 &94899218
 Transform:
@@ -1685,6 +1691,14 @@ MonoBehaviour:
   outputSlot: {fileID: 1178022856}
   recipes:
   - {fileID: 11400000, guid: d15740f730f4e7f49b490b1e3c62f335, type: 2}
+  - {fileID: 11400000, guid: c795ce12ca8dbe94bbffffb53a421911, type: 2}
+  - {fileID: 11400000, guid: 698287ad907b5df49a2ada036a71e221, type: 2}
+  - {fileID: 11400000, guid: 20bbe9e1fe8011a43ad470e5b040bd92, type: 2}
+  - {fileID: 11400000, guid: d99cb4b3fb09cec469bf184d6c7b53f4, type: 2}
+  - {fileID: 11400000, guid: 59206c6fa0c16a84891eafedd5de8b63, type: 2}
+  - {fileID: 11400000, guid: ac8a098354840274585c497722d13d64, type: 2}
+  - {fileID: 11400000, guid: 2906fd5f3a2b87a4ea28ca77f4bcebae, type: 2}
+  - {fileID: 11400000, guid: 4a4a54e1e9a0fb2429b1a3881ba813d4, type: 2}
 --- !u!1 &1052871734
 GameObject:
   m_ObjectHideFlags: 0

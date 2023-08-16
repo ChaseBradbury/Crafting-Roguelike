@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688318352a72b6747a152d59376d2c56, type: 3}
-  m_Name: Energy
+  m_Name: Spark
   m_EditorClassIdentifier: 
-  itemCode: element_energy
-  itemDisplayName: Energy
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  displayOrder: 1
+  itemCode: element_spark
+  itemDisplayName: Spark
+  icon: {fileID: 21300000, guid: 62bc9d85b0df7434a91812c7e3b4feef, type: 3}
+  displayOrder: 20
+  tier: 1

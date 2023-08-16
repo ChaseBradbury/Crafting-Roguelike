@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8759f4ba1afaaa946af78ecd1174bbef, type: 3}
+  m_Name: Wind
+  m_EditorClassIdentifier: 
+  northSlot: {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
+  eastSlot: {fileID: 11400000, guid: 18505109d80411f419469f178fd49314, type: 2}
+  southSlot: {fileID: 0}
+  westSlot: {fileID: 0}
+  positionMatters: 0
+  outputItem: {fileID: 11400000, guid: 0ba1e98893aefc74a94d8b26de1393c7, type: 2}

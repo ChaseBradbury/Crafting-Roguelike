@@ -36,7 +36,7 @@ public class InventoryController : MonoBehaviour
         foreach (Transform child in inventoryContent) { Destroy(child.gameObject); }
         int x = 0;
         int y = 0;
-        foreach (KeyValuePair<string, InventoryItem> inventoryItem in inventory.Items.OrderBy(i => i.Value.itemSO.displayOrder))
+        foreach (KeyValuePair<string, InventoryItem> inventoryItem in inventory.Items.OrderBy(i => i.Value.itemSO.tier).ThenBy(i => i.Value.itemSO.itemDisplayName))
         {
             ItemSO item = inventoryItem.Value.itemSO;
             int amount = inventoryItem.Value.amount;
