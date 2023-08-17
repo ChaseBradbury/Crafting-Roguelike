@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     private ItemSO heldItem;
     [SerializeField] private InventoryController inventoryController;
     [SerializeField] private CraftingController craftingController;
+    [SerializeField] private WeaponController weaponController;
     [SerializeField] private ItemSO[] testList;
     [SerializeField] private CursorController dndCursor;
 
@@ -29,14 +30,19 @@ public class PlayerManager : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            CraftingSlotDirection direction = craftingController.GetClosestSlot(Input.mousePosition);
-            if (direction == CraftingSlotDirection.Null)
+            SlotDirection craftingDirection = craftingController.GetClosestSlot(Input.mousePosition);
+            SlotDirection weaponDirection = weaponController.GetClosestSlot(Input.mousePosition);
+            if (craftingDirection != SlotDirection.Null)
             {
-                OnMouseUpInventory();
+                OnMouseUpCrafting(craftingDirection);
+            }
+            else if (weaponDirection != SlotDirection.Null)
+            {
+                OnMouseUpWeapon(weaponDirection);
             }
             else
             {
-                OnMouseUpCrafting(direction);
+                OnMouseUpInventory();
             }
         }
     }
@@ -66,22 +72,21 @@ public class PlayerManager : MonoBehaviour
         inventoryController.RefreshUI();
     }
 
-    public void OnMouseUpCrafting(CraftingSlotDirection direction)
+    public void OnMouseUpCrafting(SlotDirection direction)
     {
         if (heldItem != null && craftingController.IsSlotEmpty(direction))
         {
-            ItemSO tempItem = null;
-            if (!craftingController.IsSlotEmpty(direction))
-            {
-                tempItem = craftingController.RemoveFromSlot(direction);
-            }
             craftingController.AddToSlot(direction, heldItem);
             dndCursor.gameObject.SetActive(false);
-            heldItem = tempItem;
+            heldItem = null;
+        }
+        else
+        {
+            OnMouseUpInventory();
         }
     }
 
-    public void OnMouseDownCrafting(CraftingSlotDirection direction)
+    public void OnMouseDownCrafting(SlotDirection direction)
     {
         if (heldItem == null && !craftingController.IsSlotEmpty(direction))
         {
@@ -93,20 +98,29 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void OnMouseDownCraftingNorth() => OnMouseDownCrafting(CraftingSlotDirection.North);
-    public void OnMouseDownCraftingEast() => OnMouseDownCrafting(CraftingSlotDirection.East);
-    public void OnMouseDownCraftingSouth() => OnMouseDownCrafting(CraftingSlotDirection.South);
-    public void OnMouseDownCraftingWest() => OnMouseDownCrafting(CraftingSlotDirection.West);
-
     public void OnMouseDownOutput(ItemSO outputItem)
     {
-        if (heldItem == null && !craftingController.IsSlotEmpty(CraftingSlotDirection.Output))
+        if (heldItem == null && !craftingController.IsSlotEmpty(SlotDirection.Output))
         {
             ItemSO item = craftingController.Craft();
             heldItem = item;
             dndCursor.FollowMouse();
             dndCursor.gameObject.SetActive(true);
             dndCursor.GetComponent<Image>().sprite = item.icon;
+        }
+    }
+
+    public void OnMouseUpWeapon(SlotDirection direction)
+    {
+        if (heldItem != null && weaponController.WillAcceptItem(direction, heldItem))
+        {
+            weaponController.AddToSlot(direction, heldItem as FragmentSO);
+            dndCursor.gameObject.SetActive(false);
+            heldItem = null;
+        }
+        else
+        {
+            OnMouseUpInventory();
         }
     }
 }

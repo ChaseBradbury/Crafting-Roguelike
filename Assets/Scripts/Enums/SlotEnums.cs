@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public enum CraftingSlotDirection
+public enum SlotDirection
 {
     North,
     East,
     South,
     West,
-    Null,
-    Output
+    Output,
+    Center,
+    Base,
+    Null
 }

@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688318352a72b6747a152d59376d2c56, type: 3}
-  m_Name: Ink
+  m_Script: {fileID: 11500000, guid: 2f30a85f7e0dfcc43b5ed6df930ebb08, type: 3}
+  m_Name: WoodRing
   m_EditorClassIdentifier: 
-  itemCode: element_ink
-  itemDisplayName: Ink
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  displayOrder: 0
-  tier: 1
+  itemCode: fragment_ring_wood
+  itemDisplayName: Wood Ring Fragment
+  icon: {fileID: 21300000, guid: d9b07e13bde2918489f6087e0e7ae076, type: 3}
+  tier: 0
+  fragmentType: 2
+  imbuement: {fileID: 0}

@@ -7,18 +7,18 @@ using UnityEngine;
 
 public class CraftingController : MonoBehaviour
 {
-    [SerializeField] private Transform CraftingArea;
+    [SerializeField] private Transform craftingArea;
     [SerializeField] private float craftingAreaSize = 200f;
-    [SerializeField] private SlotController northCraftingSlot;
-    [SerializeField] private SlotController eastCraftingSlot;
-    [SerializeField] private SlotController southCraftingSlot;
-    [SerializeField] private SlotController westCraftingSlot;
-    [SerializeField] private SlotController outputSlot;
+    [SerializeField] private CraftingSlotController northCraftingSlot;
+    [SerializeField] private CraftingSlotController eastCraftingSlot;
+    [SerializeField] private CraftingSlotController southCraftingSlot;
+    [SerializeField] private CraftingSlotController westCraftingSlot;
+    [SerializeField] private OutputSlotController outputSlot;
     [SerializeField] private RecipeSO[] recipes;
 
-    public bool IsSlotEmpty(CraftingSlotDirection direction)
+    public bool IsSlotEmpty(SlotDirection direction)
     {
-        SlotController slotController = GetSlotController(direction);
+        SlotController<ItemSO> slotController = GetSlotController(direction);
         if (slotController != null)
         {
             return slotController.IsSlotEmpty();
@@ -29,47 +29,22 @@ public class CraftingController : MonoBehaviour
         }
     }
 
-    public CraftingSlotDirection GetClosestSlot(Vector3 mousePosition)
+    public SlotDirection GetClosestSlot(Vector3 mousePosition)
     {
-        float distance = Vector2.Distance(mousePosition, CraftingArea.position);
+        float distance = Vector2.Distance(mousePosition, craftingArea.position);
         if (distance < craftingAreaSize)
         {
-            float xDist = mousePosition.x - CraftingArea.position.x;
-            float yDist = mousePosition.y - CraftingArea.position.y;
-            if (xDist > yDist)
-            {
-                // In SE
-                if (xDist + yDist > 0)
-                {
-                    return CraftingSlotDirection.East;
-                }
-                else
-                {
-                    return CraftingSlotDirection.South;
-                }
-            }
-            else
-            {
-                // In NW
-                if (xDist + yDist > 0)
-                {
-                    return CraftingSlotDirection.North;
-                }
-                else
-                {
-                    return CraftingSlotDirection.West;
-                }
-            }
+            return Utils.FindDirectionQuadrant(mousePosition, craftingArea.position);
         }
         else
         {
-            return CraftingSlotDirection.Null;
+            return SlotDirection.Null;
         }
     }
 
-    public void AddToSlot(CraftingSlotDirection direction, ItemSO item)
+    public void AddToSlot(SlotDirection direction, ItemSO item)
     {
-        SlotController slotController = GetSlotController(direction);
+        SlotController<ItemSO> slotController = GetSlotController(direction);
         if (slotController != null)
         {
             slotController.AddSlotItem(item);
@@ -79,9 +54,9 @@ public class CraftingController : MonoBehaviour
 
     }
 
-    public ItemSO RemoveFromSlot(CraftingSlotDirection direction)
+    public ItemSO RemoveFromSlot(SlotDirection direction)
     {
-        SlotController slotController = GetSlotController(direction);
+        SlotController<ItemSO> slotController = GetSlotController(direction);
         ItemSO item = null;
         if (slotController != null)
         {
@@ -152,19 +127,19 @@ public class CraftingController : MonoBehaviour
         return code;
     }
 
-    public SlotController GetSlotController(CraftingSlotDirection direction)
+    public SlotController<ItemSO> GetSlotController(SlotDirection direction)
     {
         switch (direction)
         {
-            case CraftingSlotDirection.North:
+            case SlotDirection.North:
                 return northCraftingSlot;
-            case CraftingSlotDirection.East:
+            case SlotDirection.East:
                 return eastCraftingSlot;
-            case CraftingSlotDirection.South:
+            case SlotDirection.South:
                 return southCraftingSlot;
-            case CraftingSlotDirection.West:
+            case SlotDirection.West:
                 return westCraftingSlot;
-            case CraftingSlotDirection.Output:
+            case SlotDirection.Output:
                 return outputSlot;
             default:
                 return null;
@@ -175,10 +150,10 @@ public class CraftingController : MonoBehaviour
     public ItemSO Craft()
     {
         ItemSO outputItem = outputSlot.RemoveSlotItem();
-        RemoveFromSlot(CraftingSlotDirection.North);
-        RemoveFromSlot(CraftingSlotDirection.East);
-        RemoveFromSlot(CraftingSlotDirection.South);
-        RemoveFromSlot(CraftingSlotDirection.West);
+        RemoveFromSlot(SlotDirection.North);
+        RemoveFromSlot(SlotDirection.East);
+        RemoveFromSlot(SlotDirection.South);
+        RemoveFromSlot(SlotDirection.West);
         return outputItem;
     }
 }
