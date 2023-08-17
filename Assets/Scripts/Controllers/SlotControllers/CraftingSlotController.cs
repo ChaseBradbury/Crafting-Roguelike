@@ -8,6 +8,6 @@ public class CraftingSlotController : SlotController<ItemSO>
 
     public override void OnMouseDown()
     {
-        playerManager.OnMouseDownCrafting(direction);
+        craftingManager.OnMouseDownCrafting(direction);
     }
 }

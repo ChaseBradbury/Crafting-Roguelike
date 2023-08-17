@@ -7,7 +7,7 @@ public abstract class SlotController<T> : MonoBehaviour where T : ItemSO
 {
     protected T itemSO;
     [SerializeField] protected Sprite emptySprite;
-    [SerializeField] protected PlayerManager playerManager;
+    [SerializeField] protected CraftingManager craftingManager;
 
 
     public T ItemSO { get => itemSO; set => itemSO = value; }

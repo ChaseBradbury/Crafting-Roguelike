@@ -6,6 +6,6 @@ public class OutputSlotController : SlotController<ItemSO>
 {
     public override void OnMouseDown()
     {
-        playerManager.OnMouseDownOutput(itemSO);
+        craftingManager.OnMouseDownOutput(itemSO);
     }
 }

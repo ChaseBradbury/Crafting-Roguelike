@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
   fragmentTypeAccepted: 2
 --- !u!1 &94899216
 GameObject:
@@ -244,43 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f0c32c7f668984fa035d4799ac600e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryController: {fileID: 108079292}
-  craftingController: {fileID: 1036726549}
-  weaponController: {fileID: 1020665298}
-  testList:
-  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
-  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
-  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
-  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
-  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
-  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
-  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-  - {fileID: 11400000, guid: a91100aa309257c47b56c03b32df64da, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  dndCursor: {fileID: 354846295}
 --- !u!4 &94899218
 Transform:
   m_ObjectHideFlags: 0
@@ -1615,6 +1578,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716923565}
   m_CullTransparentMesh: 1
+--- !u!1 &720494242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 720494244}
+  - component: {fileID: 720494243}
+  m_Layer: 0
+  m_Name: CraftingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &720494243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720494242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4810d534d06eab14ab6f34eeda0770d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryController: {fileID: 108079292}
+  craftingController: {fileID: 1036726549}
+  weaponController: {fileID: 1020665298}
+  testList:
+  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
+  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
+  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
+  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
+  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
+  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
+  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
+  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
+  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
+  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
+  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
+  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
+  - {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  dndCursor: {fileID: 354846295}
+--- !u!4 &720494244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720494242}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1062.7441, y: 533.6133, z: -4.4622025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &736453036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,7 +1837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
 --- !u!1 &866983482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,7 +1928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
   fragmentTypeAccepted: 2
 --- !u!1 &947757712
 GameObject:
@@ -1956,7 +2020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
   fragmentTypeAccepted: 2
 --- !u!1 &1020665296
 GameObject:
@@ -2014,6 +2078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centerSize: 150
   ringSize: 400
+  baseSize: 250
   centerFragmentSlot: {fileID: 1479320089}
   northFragmentSlot: {fileID: 947757716}
   eastFragmentSlot: {fileID: 1666295666}
@@ -2359,7 +2424,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1133286865}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 94899217}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: MoveToCombatScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1133286865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,7 +2556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 0ab0beac308a9ab45a3c4df95ab04865, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
 --- !u!1 &1206957535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,7 +2677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
   direction: 1
 --- !u!1 &1247375119
 GameObject:
@@ -2797,7 +2874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
   direction: 3
 --- !u!1 &1274129567
 GameObject:
@@ -3185,7 +3262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
   fragmentTypeAccepted: 1
 --- !u!1 &1560462962
 GameObject:
@@ -3535,7 +3612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
   fragmentTypeAccepted: 3
 --- !u!1 &1624045584
 GameObject:
@@ -3732,7 +3809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
   direction: 0
 --- !u!1 &1666295662
 GameObject:
@@ -3824,7 +3901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
   fragmentTypeAccepted: 2
 --- !u!1 &1733349434
 GameObject:
@@ -3946,7 +4023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
-  playerManager: {fileID: 94899217}
+  craftingManager: {fileID: 720494243}
   direction: 2
 --- !u!1 &1912575153
 GameObject:
@@ -4691,3 +4768,4 @@ SceneRoots:
   - {fileID: 776876145}
   - {fileID: 1566283796}
   - {fileID: 94899218}
+  - {fileID: 720494244}
