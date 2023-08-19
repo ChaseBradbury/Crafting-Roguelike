@@ -7,5 +7,6 @@ public class RoomSO : ScriptableObject
 {
     public int numberOfRewards;
     public RewardOption[] rewards;
-    public EnemySO[] enemies;
+    public int numberOfEnemies;
+    public EnemyOption[] enemies;
 }
