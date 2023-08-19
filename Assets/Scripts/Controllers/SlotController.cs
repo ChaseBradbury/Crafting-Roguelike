@@ -31,6 +31,16 @@ public abstract class SlotController<T> : MonoBehaviour where T : ItemSO
         return tmpItem;
     }
 
+    public void Hover()
+    {
+        craftingManager.HoverSlot(itemSO);
+    }
+
+    public void Leave()
+    {
+        craftingManager.LeaveSlot();
+    }
+
     public abstract void OnMouseDown();
 
 }

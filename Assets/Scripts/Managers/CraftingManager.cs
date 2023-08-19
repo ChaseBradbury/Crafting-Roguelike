@@ -41,8 +41,7 @@ public class CraftingManager : MonoBehaviour
         {
             heldItem = item;
             PlayerManager.Inventory.RemoveItem(item, 1);
-            dndCursor.gameObject.SetActive(true);
-            dndCursor.GetComponent<Image>().sprite = item.icon;
+            dndCursor.SelectItem(item);
         }
         
         inventoryController.RefreshUI();
@@ -53,7 +52,7 @@ public class CraftingManager : MonoBehaviour
         if (heldItem != null)
         {
             PlayerManager.Inventory.AddItem(heldItem, 1);
-            dndCursor.gameObject.SetActive(false);
+            dndCursor.DropItem();
             heldItem = null;
         }
         
@@ -65,7 +64,7 @@ public class CraftingManager : MonoBehaviour
         if (heldItem != null && craftingController.IsSlotEmpty(direction))
         {
             craftingController.AddToSlot(direction, heldItem);
-            dndCursor.gameObject.SetActive(false);
+            dndCursor.DropItem();
             heldItem = null;
         }
         else
@@ -80,9 +79,7 @@ public class CraftingManager : MonoBehaviour
         {
             ItemSO item = craftingController.RemoveFromSlot(direction);
             heldItem = item;
-            dndCursor.FollowMouse();
-            dndCursor.gameObject.SetActive(true);
-            dndCursor.GetComponent<Image>().sprite = item.icon;
+            dndCursor.SelectItem(item);
         }
     }
 
@@ -92,9 +89,7 @@ public class CraftingManager : MonoBehaviour
         {
             ItemSO item = craftingController.Craft();
             heldItem = item;
-            dndCursor.FollowMouse();
-            dndCursor.gameObject.SetActive(true);
-            dndCursor.GetComponent<Image>().sprite = item.icon;
+            dndCursor.SelectItem(item);
         }
     }
 
@@ -103,12 +98,25 @@ public class CraftingManager : MonoBehaviour
         if (heldItem != null && weaponController.WillAcceptItem(direction, heldItem))
         {
             weaponController.AddToSlot(direction, heldItem as FragmentSO);
-            dndCursor.gameObject.SetActive(false);
+            dndCursor.DropItem();
             heldItem = null;
         }
         else
         {
             OnMouseUpInventory();
         }
+    }
+
+    public void HoverSlot(ItemSO item)
+    {
+        if (item != null)
+        {
+            dndCursor.HoverItem(item);
+        }
+    }
+
+    public void LeaveSlot()
+    {
+        dndCursor.LeaveItem();
     }
 }

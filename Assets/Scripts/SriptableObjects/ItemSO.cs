@@ -11,6 +11,9 @@ public class ItemSO : ScriptableObject
     [Tooltip("Name displayed in the inventory.")]
     public string itemDisplayName;
 
+    [Tooltip("Description of item shown on hover.")]
+    public string description;
+
     [Tooltip("Image displayed in the inventory.")]
     public Sprite icon;
 
