@@ -10,7 +10,13 @@ public class LoadManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerManager.CreateInventory(startingInventory);
-        PlayerManager.Weapon = startingWeapon;
+        if (PlayerManager.Inventory == null)
+        {
+            PlayerManager.CreateInventory(startingInventory);
+        }
+        if (PlayerManager.Weapon == null)
+        {
+            PlayerManager.Weapon = startingWeapon;
+        }
     }
 }
