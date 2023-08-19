@@ -13,6 +13,7 @@ public class InventoryController : MonoBehaviour
     [SerializeField] float slotSize = 110f;
     [SerializeField] int rowLength = 6;
     [SerializeField] float offset = 5f;
+    private bool initialized = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +23,11 @@ public class InventoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void SetInventory(Inventory inventory)
-    {
-        this.inventory = inventory;
-        RefreshUI();
+        if (!initialized && PlayerManager.Inventory != null)
+        {
+            RefreshUI();
+            initialized = true;
+        }
     }
 
     public void RefreshUI()
@@ -36,7 +35,7 @@ public class InventoryController : MonoBehaviour
         foreach (Transform child in inventoryContent) { Destroy(child.gameObject); }
         int x = 0;
         int y = 0;
-        foreach (KeyValuePair<string, InventoryItem> inventoryItem in inventory.Items.OrderBy(i => i.Value.itemSO.tier).ThenBy(i => i.Value.itemSO.itemDisplayName))
+        foreach (KeyValuePair<string, InventoryItem> inventoryItem in PlayerManager.Inventory.Items.OrderBy(i => i.Value.itemSO.tier).ThenBy(i => i.Value.itemSO.itemDisplayName))
         {
             ItemSO item = inventoryItem.Value.itemSO;
             int amount = inventoryItem.Value.amount;

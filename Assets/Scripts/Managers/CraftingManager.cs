@@ -11,15 +11,7 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] private InventoryController inventoryController;
     [SerializeField] private CraftingController craftingController;
     [SerializeField] private WeaponController weaponController;
-    [SerializeField] private ItemSO[] testList;
     [SerializeField] private CursorController dndCursor;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        PlayerManager.CreateInventory(testList);
-        inventoryController.SetInventory(PlayerManager.Inventory);
-    }
 
     // Update is called once per frame
     void Update()

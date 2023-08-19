@@ -8,7 +8,9 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
     private static Inventory inventory;
+    private static Weapon weapon;
     public static Inventory Inventory { get => inventory; set => inventory = value; }
+    public static Weapon Weapon { get => weapon; set => weapon = value; }
 
     private void Awake()
     {

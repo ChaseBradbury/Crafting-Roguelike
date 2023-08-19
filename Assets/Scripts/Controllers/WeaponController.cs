@@ -14,6 +14,21 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private FragmentSlotController southFragmentSlot;
     [SerializeField] private FragmentSlotController westFragmentSlot;
     [SerializeField] private FragmentSlotController baseFragmentSlot;
+    private bool initialized = false;
+
+    void Update()
+    {
+        if (!initialized && PlayerManager.Weapon != null)
+        {
+            AddToSlot(SlotDirection.Center, PlayerManager.Weapon.CenterFragment);
+            AddToSlot(SlotDirection.North, PlayerManager.Weapon.RingFragments[0]);
+            AddToSlot(SlotDirection.East, PlayerManager.Weapon.RingFragments[1]);
+            AddToSlot(SlotDirection.South, PlayerManager.Weapon.RingFragments[2]);
+            AddToSlot(SlotDirection.West, PlayerManager.Weapon.RingFragments[3]);
+            AddToSlot(SlotDirection.Base, PlayerManager.Weapon.BaseFragment);
+            initialized = true;
+        }
+    }
 
     public SlotDirection GetClosestSlot(Vector3 mousePosition)
     {
