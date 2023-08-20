@@ -6,25 +6,25 @@ using UnityEngine;
 [Serializable]
 public class Weapon
 {
-    [SerializeField] private FragmentSO centerFragment;
-    [SerializeField] private FragmentSO[] ringFragments = new FragmentSO[4];
-    [SerializeField] private FragmentSO baseFragment;
+    [SerializeField] private CenterFragmentSO centerFragment;
+    [SerializeField] private RingFragmentSO[] ringFragments = new RingFragmentSO[4];
+    [SerializeField] private BaseFragmentSO baseFragment;
 
-    public FragmentSO CenterFragment { get => centerFragment; set => centerFragment = value; }
-    public FragmentSO[] RingFragments { get => ringFragments; set => ringFragments = value; }
-    public FragmentSO BaseFragment { get => baseFragment; set => baseFragment = value; }
+    public CenterFragmentSO CenterFragment { get => centerFragment; set => centerFragment = value; }
+    public RingFragmentSO[] RingFragments { get => ringFragments; set => ringFragments = value; }
+    public BaseFragmentSO BaseFragment { get => baseFragment; set => baseFragment = value; }
 
-    public void UpdateCenter(FragmentSO fragment)
+    public void UpdateCenter(CenterFragmentSO fragment)
     {
-        if (CenterFragment.fragmentType == FragmentType.Center)
+        if (fragment.fragmentType == FragmentType.Center)
         {
             CenterFragment = fragment;
         }
     }
 
-    public void UpdateRing(FragmentSO fragment, SlotDirection direction)
+    public void UpdateRing(RingFragmentSO fragment, SlotDirection direction)
     {
-        if (CenterFragment.fragmentType == FragmentType.Ring)
+        if (fragment.fragmentType == FragmentType.Ring)
         {
             switch (direction)
             {
@@ -44,11 +44,11 @@ public class Weapon
         }
     }
 
-    public void UpdateBase(FragmentSO fragment)
+    public void UpdateBase(BaseFragmentSO fragment)
     {
-        if (CenterFragment.fragmentType == FragmentType.Base)
+        if (fragment.fragmentType == FragmentType.Base)
         {
-            CenterFragment = fragment;
+            BaseFragment = fragment;
         }
     }
 }

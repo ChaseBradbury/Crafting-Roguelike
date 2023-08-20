@@ -26,5 +26,6 @@ public class EnemyManager : MonoBehaviour
         float posY = Random.Range(-quadrantHeight, quadrantHeight);
         Transform enemyTransform = Instantiate(enemyTemplate, transform).GetComponent<Transform>();
         enemyTransform.GetComponent<EnemyController>().Initialize(enemy, new Vector2(posX, posY));
+        enemyTransform.gameObject.SetActive(true);
     }
 }
