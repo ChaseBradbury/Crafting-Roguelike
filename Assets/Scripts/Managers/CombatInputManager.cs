@@ -19,7 +19,6 @@ public class CombatInputManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetWeaponMode();
     }
 
     void FixedUpdate()
@@ -51,6 +50,11 @@ public class CombatInputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (weaponMode == null && PlayerManager.Weapon != null)
+        {
+            SetWeaponMode();
+        }
+
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);

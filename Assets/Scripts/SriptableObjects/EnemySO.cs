@@ -13,4 +13,7 @@ public class EnemySO : ScriptableObject
 
     [Tooltip("How much damage the enemy can take.")]
     public int health;
+
+    [Tooltip("How large the hitbox is.")]
+    public float size;
 }

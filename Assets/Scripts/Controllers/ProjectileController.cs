@@ -45,7 +45,11 @@ public class ProjectileController : MonoBehaviour
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, weapon.BaseFragment.projectileSize);
         foreach (Collider2D enemy in enemies)
         {
-            enemy.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = new Color(0, 1, 0);
+            EnemyController enemyController = enemy.GetComponent<EnemyController>();
+            if (enemyController != null)
+            {
+                enemyController.AddEffect(4);
+            }
         }
     }
 
@@ -54,8 +58,12 @@ public class ProjectileController : MonoBehaviour
         Collider2D[] enemies = Physics2D.OverlapCircleAll(targetPosition, targetRadius);
         foreach (Collider2D enemy in enemies)
         {
-            enemy.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+            EnemyController enemyController = enemy.GetComponent<EnemyController>();
+            if (enemyController != null)
+            {
+                enemyController.AddEffect(15);
+            }
         }
-        Destroy(this);
+        Destroy(gameObject);
     }
 }

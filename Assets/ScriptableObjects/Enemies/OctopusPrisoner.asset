@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCode: enemy_octopusprisoner
   enemyName: Octopus Prisoner
+  health: 60
+  size: 0.5

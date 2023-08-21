@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: WorldUIBackground
+    uniqueID: 1699593111
+    locked: 0
+  - name: WorldUIForeground
+    uniqueID: 1850026857
+    locked: 0
