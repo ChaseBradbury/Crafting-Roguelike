@@ -9,16 +9,21 @@ public class DamageEffectSO : CombatEffectSO
 
     public override void ExecuteEffect()
     {
-        enemyController.GetComponent<HealthController>().Damage(damage);
+        Damage();
     }
 
     public override void ContinueEffect()
     {
-        // Continue Damage
+        Damage();
     }
 
     public override void EndEffect()
     {
         // End Damage
+    }
+
+    public void Damage()
+    {
+        enemyController.GetComponent<HealthController>().Damage(damage);
     }
 }
