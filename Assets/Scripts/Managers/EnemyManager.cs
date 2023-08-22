@@ -15,17 +15,17 @@ public class EnemyManager : MonoBehaviour
         {
             for (int i = 0; i < testRoom.numberOfEnemies; i++)
             {
-                SpawnEnemy(testRoom.enemies[0].enemy);
+                SpawnEnemy(testRoom.enemies[0].enemy, i);
             }
         }
     }
 
-    public void SpawnEnemy(EnemySO enemy)
+    public void SpawnEnemy(EnemySO enemy, int index)
     {
         float posX = Random.Range(-quadrantWidth, quadrantWidth);
         float posY = Random.Range(-quadrantHeight, quadrantHeight);
         Transform enemyTransform = Instantiate(enemyTemplate, transform).GetComponent<Transform>();
-        enemyTransform.GetComponent<EnemyController>().Initialize(enemy, new Vector2(posX, posY));
+        enemyTransform.GetComponent<EnemyController>().Initialize(enemy, new Vector2(posX, posY), index);
         enemyTransform.gameObject.SetActive(true);
     }
 }

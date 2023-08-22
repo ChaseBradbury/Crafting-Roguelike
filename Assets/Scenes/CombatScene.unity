@@ -1646,6 +1646,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3da852edb82958a43bee46f650cd2beb, type: 2}
     - {fileID: 11400000, guid: 3da852edb82958a43bee46f650cd2beb, type: 2}
     baseFragment: {fileID: 11400000, guid: 419e371f1923149499a717ba4e1d0a72, type: 2}
+  startingFragment: {fileID: 11400000, guid: 419e371f1923149499a717ba4e1d0a72, type: 2}
   startingInventory: []
 --- !u!114 &1990297984
 MonoBehaviour:

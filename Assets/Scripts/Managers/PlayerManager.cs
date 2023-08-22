@@ -18,6 +18,11 @@ public class PlayerManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        
+    }
+
     public static void CreateInventory(ItemSO[] items)
     {
         inventory = new Inventory();

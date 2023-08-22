@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8759f4ba1afaaa946af78ecd1174bbef, type: 3}
-  m_Name: WoodRing
+  m_Name: WoodBase
   m_EditorClassIdentifier: 
   northSlot: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  eastSlot: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  eastSlot: {fileID: 0}
   southSlot: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
   westSlot: {fileID: 0}
-  positionMatters: 0
-  outputItem: {fileID: 11400000, guid: 53aebda0434493f408646e6f8ff0c028, type: 2}
+  positionMatters: 1
+  outputItem: {fileID: 11400000, guid: 419e371f1923149499a717ba4e1d0a72, type: 2}

@@ -7,4 +7,5 @@ public class FragmentSO : ItemSO
 {
     public FragmentType fragmentType;
     public ElementSO imbuement;
+    public CombatEffectSO combatEffect;
 }

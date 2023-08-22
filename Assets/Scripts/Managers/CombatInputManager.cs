@@ -82,7 +82,10 @@ public class CombatInputManager : MonoBehaviour
 
     public void SetWeaponMode()
     {
-        weaponMode = new WeaponMode(PlayerManager.Weapon.CenterFragment, PlayerManager.Weapon.RingFragments[weaponRingIndex], PlayerManager.Weapon.BaseFragment);
+        CenterFragmentSO center = PlayerManager.Weapon.CenterFragment;
+        RingFragmentSO ring = PlayerManager.Weapon.RingFragments[weaponRingIndex];
+        BaseFragmentSO baseFragment = PlayerManager.Weapon.BaseFragment;
+        weaponMode = new WeaponMode(center, ring, baseFragment);
     }
     public void UpdateWeaponMode()
     {
@@ -92,7 +95,7 @@ public class CombatInputManager : MonoBehaviour
     public void StartAttack(Vector2 playerPosition, Vector2 targetPosition, float size, float angle)
     {
         Transform projectileTransform = Instantiate(projectileTemplate, transform).GetComponent<Transform>();
-        projectileTransform.GetComponent<ProjectileController>().Shoot(weaponMode, playerPosition, targetPosition, size);
+        projectileTransform.GetComponent<ProjectileController>().Shoot(0, playerPosition, targetPosition, size);
         projectileTransform.gameObject.SetActive(true);
     }
 }
