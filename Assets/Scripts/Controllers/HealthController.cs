@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    private int maxHealth;
+    [SerializeField] private int maxHealth;
     private int currentHealth;
     [SerializeField] private Gradient colorGradient;
     [SerializeField] private Transform barTransform;
+
+    public void Start()
+    {
+        SetMaxHealth(maxHealth);
+    }
 
     public void SetMaxHealth(int maxHealth)
     {
@@ -23,7 +28,7 @@ public class HealthController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            transform.GetComponent<EntityController>().HealthDrained();
         }
     }
 

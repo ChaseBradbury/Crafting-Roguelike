@@ -16,4 +16,4 @@ MonoBehaviour:
     repeatable: 0
     repeatInterval: 0
     repetitionNumber: 0
-  damage: 20
+  damage: 10

@@ -24,6 +24,6 @@ public class DamageEffectSO : CombatEffectSO
 
     public void Damage()
     {
-        enemyController.GetComponent<HealthController>().Damage(damage);
+        entityController.GetComponent<HealthController>().Damage(damage);
     }
 }

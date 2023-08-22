@@ -7,12 +7,13 @@ public abstract class CombatEffectSO : ScriptableObject
     public RepeatOptions repeatOptions;
     protected int repetitions = 0;
     protected int timeSinceLastRepeat = 0;
-    protected EnemyController enemyController;
+    protected EntityController entityController;
+    protected EffectStatus status;
 
-    public EffectReturn Execute(EnemyController enemyController)
+    public EffectReturn Execute(EntityController entityController)
     {
         EffectReturn effectReturn = new EffectReturn();
-        this.enemyController = enemyController;
+        this.entityController = entityController;
         ExecuteEffect();
         if (repeatOptions.repeatable)
         {
@@ -49,10 +50,16 @@ public abstract class CombatEffectSO : ScriptableObject
             ++timeSinceLastRepeat;
         }
         return effectReturn;
+    }
 
+    public EffectStatus EffectStatus()
+    {
+        CheckEffect();
+        return status;
     }
 
     public abstract void ExecuteEffect();
     public abstract void ContinueEffect();
     public abstract void EndEffect();
+    public void CheckEffect(){}
 }

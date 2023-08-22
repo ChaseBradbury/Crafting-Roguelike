@@ -2,23 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : EntityController
 {
     private int id;
     private EnemySO enemy;
-    private HealthController healthController;
-    private List<CombatEffectSO> continuousEffects;
+    [SerializeField] private AvatarController player;
+    private int timeSinceLastAttack = 0;
+
 
     public int Id { get => id; set => id = value; }
 
     void FixedUpdate()
     {
-        for (int i = 0; i < continuousEffects.Count; ++i)
+        DoContinuousEffects();
+        if (Vector3.Distance(transform.position, player.transform.position) > enemy.range)
         {
-            if (continuousEffects[i].Continue().terminated)
-            {
-                continuousEffects.RemoveAt(i--);
-            }
+            Move();
+        }
+        if (timeSinceLastAttack >= enemy.attackInterval)
+        {
+            timeSinceLastAttack = 0;
+            Attack();
+        }
+        else
+        {
+            ++timeSinceLastAttack;
         }
     }
 
@@ -27,19 +35,27 @@ public class EnemyController : MonoBehaviour
         this.id = id;
         this.enemy = enemy;
         transform.position = position;
+        InitializeEntity();
         //transform.Find("Sprite").localScale = new Vector3(enemy.size, enemy.size, 0);
-        healthController = transform.GetComponent<HealthController>();
         healthController.SetMaxHealth(enemy.health);
-        continuousEffects = new List<CombatEffectSO>();
     }
 
-    public void AddEffect(CombatEffectSO effect)
+    public void Move()
     {
-        CombatEffectSO clone = ScriptableObject.Instantiate(effect);
-        if (!clone.Execute(this).terminated)
-        {
-            continuousEffects.Add(clone);
-        }
+        Vector3 target = player.transform.position;
+        transform.position = Vector3.MoveTowards(transform.position, target, enemy.speed);
+    }
 
+    public void Attack()
+    {
+        if (Vector3.Distance(transform.position, player.transform.position) < enemy.range)
+        {
+            player.AddEffect(enemy.effect);
+        }
+    }
+
+    public override void HealthDrained()
+    {
+        Destroy(gameObject);
     }
 }

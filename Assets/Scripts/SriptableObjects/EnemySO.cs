@@ -16,4 +16,16 @@ public class EnemySO : ScriptableObject
 
     [Tooltip("How large the hitbox is.")]
     public float size;
+
+    [Tooltip("How fast the enemy moves.")]
+    public float speed;
+
+    [Tooltip("How far the enemy attacks from.")]
+    public float range;
+
+    [Tooltip("How far the enemy attacks from.")]
+    public CombatEffectSO effect;
+
+    [Tooltip("Time between enemy attacks (50 = 1 second).")]
+    public int attackInterval;
 }
