@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f973f965ea0244a9f054dfc14d8bd4, type: 3}
   m_Name: Fire Base Effect
   m_EditorClassIdentifier: 
+  effectCode: fire_attack
+  priority: 0
   repeatOptions:
     repeatable: 1
     repeatInterval: 100

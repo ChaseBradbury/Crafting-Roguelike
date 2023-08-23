@@ -17,6 +17,6 @@ MonoBehaviour:
   health: 30
   size: 0.5
   speed: 0.01
-  range: 10
+  range: 1.5
   effect: {fileID: 11400000, guid: 13fa84bca38c2354ea4915912fa5d6e8, type: 2}
   attackInterval: 150

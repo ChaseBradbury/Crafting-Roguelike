@@ -14,20 +14,15 @@ public class EnemyController : EntityController
 
     void FixedUpdate()
     {
+        status.moveTo = player.transform.position;
+        status.lockMovement = false;
         DoContinuousEffects();
-        if (Vector3.Distance(transform.position, player.transform.position) > enemy.range)
+        // if (Vector2.Distance(transform.position, player.transform.position) > enemy.range)
+        if (!status.lockMovement)
         {
             Move();
         }
-        if (timeSinceLastAttack >= enemy.attackInterval)
-        {
-            timeSinceLastAttack = 0;
-            Attack();
-        }
-        else
-        {
-            ++timeSinceLastAttack;
-        }
+        Attack();
     }
 
     public void Initialize(EnemySO enemy, Vector3 position, int id)
@@ -42,15 +37,23 @@ public class EnemyController : EntityController
 
     public void Move()
     {
-        Vector3 target = player.transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, target, enemy.speed);
+        Vector3 target = status.moveTo;
+        transform.position = Vector2.MoveTowards(transform.position, target, enemy.speed);
     }
 
     public void Attack()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < enemy.range)
+        if (Vector2.Distance(transform.position, player.transform.position) <= enemy.range)
         {
-            player.AddEffect(enemy.effect);
+            if (timeSinceLastAttack >= enemy.attackInterval)
+            {
+                timeSinceLastAttack = 0;
+                player.AddEffect(enemy.effect);
+            }
+            else
+            {
+                ++timeSinceLastAttack;
+            }
         }
     }
 

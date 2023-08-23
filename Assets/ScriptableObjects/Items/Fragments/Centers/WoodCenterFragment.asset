@@ -19,4 +19,4 @@ MonoBehaviour:
   tier: 0
   fragmentType: 1
   imbuement: {fileID: 0}
-  combatEffect: {fileID: 11400000, guid: 6a2185eae03c40c46b2589033938edb8, type: 2}
+  combatEffect: {fileID: 11400000, guid: 5b2b7a8bbe3cf3546ba1b7ba1cea9ec4, type: 2}

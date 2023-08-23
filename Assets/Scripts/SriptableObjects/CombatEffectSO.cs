@@ -4,11 +4,15 @@ using UnityEngine;
 
 public abstract class CombatEffectSO : ScriptableObject
 {
+    [Tooltip("Unique code for the effect.")]
+    public string effectCode;
+    [Tooltip("Determines the order effects will be evaluated (ascending).")]
+    public int priority;
     public RepeatOptions repeatOptions;
     protected int repetitions = 0;
     protected int timeSinceLastRepeat = 0;
     protected EntityController entityController;
-    protected EffectStatus status;
+    protected EntityStatus status = new EntityStatus();
 
     public EffectReturn Execute(EntityController entityController)
     {
@@ -24,6 +28,7 @@ public abstract class CombatEffectSO : ScriptableObject
             EndEffect();
             effectReturn.terminated = true;
         }
+        effectReturn.effectStatus = status;
         return effectReturn;
     }
 
@@ -49,10 +54,11 @@ public abstract class CombatEffectSO : ScriptableObject
         {
             ++timeSinceLastRepeat;
         }
+        effectReturn.effectStatus = status;
         return effectReturn;
     }
 
-    public EffectStatus EffectStatus()
+    public EntityStatus EffectStatus()
     {
         CheckEffect();
         return status;

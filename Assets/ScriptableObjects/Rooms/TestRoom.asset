@@ -20,7 +20,7 @@ MonoBehaviour:
   - element: {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
     min: 0
     max: 1
-  numberOfEnemies: 100
+  numberOfEnemies: 10
   enemies:
   - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
     weight: 0
