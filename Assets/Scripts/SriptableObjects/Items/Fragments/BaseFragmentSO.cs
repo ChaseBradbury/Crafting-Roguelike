@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Base Fragment")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Fragments/Base Fragment")]
 public class BaseFragmentSO : FragmentSO
 {
-    public float projectileSpeed;
-    public float projectileSize;
+    public BaseFragmentOptionsSO fragmentOptions;
 }

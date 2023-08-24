@@ -57,6 +57,7 @@ public class WeaponController : MonoBehaviour
         if (slotController != null)
         {
             slotController.AddSlotItem(item);
+            PlayerManager.Weapon.UpdateFragment(item, direction);
         }
     }
 

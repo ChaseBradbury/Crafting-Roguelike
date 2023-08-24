@@ -21,7 +21,7 @@ public class ProjectileController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        pathLerpPosition += PlayerManager.Weapon.BaseFragment.projectileSpeed;
+        pathLerpPosition += PlayerManager.Weapon.BaseFragment.fragmentOptions.projectileSpeed;
         if (pathLerpPosition >= 1)
         {
             Impact();
@@ -44,7 +44,7 @@ public class ProjectileController : MonoBehaviour
 
     public void RunBy()
     {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, PlayerManager.Weapon.BaseFragment.projectileSize);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, PlayerManager.Weapon.BaseFragment.fragmentOptions.projectileSize);
         foreach (Collider2D enemy in enemies)
         {
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
@@ -63,7 +63,7 @@ public class ProjectileController : MonoBehaviour
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
             if (enemyController != null)
             {
-                AddEffectToEnemy(enemyController, PlayerManager.Weapon.CenterFragment);
+                AddEffectToEnemy(enemyController, PlayerManager.Weapon.RingFragments[ringIndex]);
             }
         }
         Destroy(gameObject);

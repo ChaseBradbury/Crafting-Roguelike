@@ -78,6 +78,26 @@ public class CombatInputManager : MonoBehaviour
             target.Find("Sprite").gameObject.SetActive(pointerHeld);
             StartAttack(playerObject.position, worldPos, targetCurrentSize/2, angle);
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            UpdateWeaponMode(++weaponRingIndex);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            UpdateWeaponMode(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            UpdateWeaponMode(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            UpdateWeaponMode(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            UpdateWeaponMode(3);
+        }
     }
 
     public void SetWeaponMode()
@@ -87,15 +107,17 @@ public class CombatInputManager : MonoBehaviour
         BaseFragmentSO baseFragment = PlayerManager.Weapon.BaseFragment;
         weaponMode = new WeaponMode(center, ring, baseFragment);
     }
-    public void UpdateWeaponMode()
+    public void UpdateWeaponMode(int index)
     {
+        index = index % PlayerManager.Weapon.RingFragments.Length;
+        weaponRingIndex = index;
         weaponMode.RingFragment = PlayerManager.Weapon.RingFragments[weaponRingIndex];
     }
 
     public void StartAttack(Vector2 playerPosition, Vector2 targetPosition, float size, float angle)
     {
         Transform projectileTransform = Instantiate(projectileTemplate, transform).GetComponent<Transform>();
-        projectileTransform.GetComponent<ProjectileController>().Shoot(0, playerPosition, targetPosition, size);
+        projectileTransform.GetComponent<ProjectileController>().Shoot(weaponRingIndex, playerPosition, targetPosition, size);
         projectileTransform.gameObject.SetActive(true);
     }
 }

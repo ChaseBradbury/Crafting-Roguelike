@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: element_flame
   itemDisplayName: Flame
-  icon: {fileID: 21300000, guid: 5241b6cf2c7f4414f9a8c375aa1766e7, type: 3}
-  displayOrder: 600
+  description: 
+  icon: {fileID: 21300000, guid: b57eadc8e2461f847aa1c2ffaa2a5c3a, type: 3}
   tier: 2

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: WoodRingFragment
   m_EditorClassIdentifier: 
   itemCode: fragment_ring_wood
-  itemDisplayName: Wood Ring Fragment
+  itemDisplayName: Wood Ring
   description: 
   icon: {fileID: 21300000, guid: d9b07e13bde2918489f6087e0e7ae076, type: 3}
   tier: 0
-  fragmentType: 0
+  fragmentType: 2
   imbuement: {fileID: 0}
+  combatEffect: {fileID: 11400000, guid: 13fa84bca38c2354ea4915912fa5d6e8, type: 2}

@@ -51,4 +51,23 @@ public class Weapon
             BaseFragment = fragment;
         }
     }
+
+    public void UpdateFragment(FragmentSO fragment, SlotDirection direction)
+    {
+        switch(direction)
+        {
+            case SlotDirection.Base:
+                UpdateBase(fragment as BaseFragmentSO);
+                break;
+            case SlotDirection.Center:
+                UpdateCenter(fragment as CenterFragmentSO);
+                break;
+            case SlotDirection.North:
+            case SlotDirection.East:
+            case SlotDirection.South:
+            case SlotDirection.West:
+                UpdateRing(fragment as RingFragmentSO, direction);
+                break;
+        }
+    }
 }

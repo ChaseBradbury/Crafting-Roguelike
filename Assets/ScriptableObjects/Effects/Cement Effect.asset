@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d14be95e6ffe95f4a8498240262eabb4, type: 3}
-  m_Name: Cement Center Effect
+  m_Name: Cement Effect
   m_EditorClassIdentifier: 
   effectCode: cement_attack
   priority: 0

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: element_wood
   itemDisplayName: Wood
-  icon: {fileID: 21300000, guid: d04b0bb216523064d847e91092c8bf90, type: 3}
-  displayOrder: 2
+  description: 
+  icon: {fileID: 21300000, guid: 788b6ed16c6ec1847a8ef9f75436376e, type: 3}
+  tier: 0

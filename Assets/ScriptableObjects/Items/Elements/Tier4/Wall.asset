@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: element_wall
   itemDisplayName: Wall
-  icon: {fileID: 21300000, guid: 4a0fbaa96144d42448f6c669387eb648, type: 3}
+  description: 
+  icon: {fileID: 21300000, guid: 2d1cf69502d9ad74ea0ebbd13faee29f, type: 3}
   tier: 4

@@ -1202,7 +1202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1026468487
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1887,7 +1887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1990297983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1903,10 +1903,10 @@ MonoBehaviour:
   startingWeapon:
     centerFragment: {fileID: 11400000, guid: 8ee82a8511fa199449fc5869fed55a19, type: 2}
     ringFragments:
-    - {fileID: 11400000, guid: 3da852edb82958a43bee46f650cd2beb, type: 2}
-    - {fileID: 11400000, guid: 3da852edb82958a43bee46f650cd2beb, type: 2}
-    - {fileID: 11400000, guid: 3da852edb82958a43bee46f650cd2beb, type: 2}
-    - {fileID: 11400000, guid: 3da852edb82958a43bee46f650cd2beb, type: 2}
+    - {fileID: 11400000, guid: bfafaff926f4a2947b90332c44a959f5, type: 2}
+    - {fileID: 11400000, guid: 2479f7ba10116204d923ca0f99a79a44, type: 2}
+    - {fileID: 11400000, guid: aaa78c07cfecac448b276b4d8ea55979, type: 2}
+    - {fileID: 11400000, guid: 7e040895e5557c04e939832ada6a9d19, type: 2}
     baseFragment: {fileID: 11400000, guid: 419e371f1923149499a717ba4e1d0a72, type: 2}
   startingInventory: []
 --- !u!114 &1990297984

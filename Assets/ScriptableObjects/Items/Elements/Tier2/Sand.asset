@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: element_sand
   itemDisplayName: Sand
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  description: 
+  icon: {fileID: 21300000, guid: 2d6671afe44530740b15efb89f87c872, type: 3}
   tier: 2

@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12fb8abae57531845ab3c2bf3eb35802, type: 3}
-  m_Name: WoodBaseFragment
+  m_Name: InkWoodBase
   m_EditorClassIdentifier: 
-  itemCode: fragment_base_wood
-  itemDisplayName: Wood Base Fragment
+  itemCode: fragment_base_wood_ink
+  itemDisplayName: Ink-Imbued Wood Staff
   description: 
-  icon: {fileID: 21300000, guid: d04b0bb216523064d847e91092c8bf90, type: 3}
+  icon: {fileID: 21300000, guid: 86478edc106f9b24587a8d0f310d84b6, type: 3}
   tier: 0
   fragmentType: 3
   imbuement: {fileID: 0}
-  combatEffect: {fileID: 11400000, guid: 9291b776aba52dd4fa3ee465f07adedd, type: 2}
-  projectileSpeed: 0.1
-  projectileSize: 0.5
+  combatEffect: {fileID: 11400000, guid: 5b2b7a8bbe3cf3546ba1b7ba1cea9ec4, type: 2}
+  fragmentOptions: {fileID: 11400000, guid: d61775e4bed0ef641ab0d92daa9a02ea, type: 2}
