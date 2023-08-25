@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: fragment_base_wood_stone
   itemDisplayName: Stone-Imbued Wood Staff
-  description: Hurls a stone that smashes through enemies in its way.
+  description: Hurls a stone that smashes through enemies in its way, dealing direct
+    damage.
   icon: {fileID: 21300000, guid: d7c81829489984c4d8a899fe160e6161, type: 3}
   tier: 0
   fragmentType: 3

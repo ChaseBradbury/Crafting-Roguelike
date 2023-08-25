@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: fragment_base_wood_spark
   itemDisplayName: Spark-Infused Wood Staff
-  description: 
+  description: Startles enemies as it whizzes by, making them scatter in random directions.
   icon: {fileID: 21300000, guid: f1a90aa707e235c49a038d7b660f2190, type: 3}
   tier: 0
   fragmentType: 3

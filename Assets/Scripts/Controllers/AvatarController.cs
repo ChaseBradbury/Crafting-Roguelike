@@ -16,6 +16,6 @@ public class AvatarController : EntityController
 
     public override void HealthDrained()
     {
-        Debug.Log("DEAD!");
+        PlayerManager.LoseLevel();
     }
 }

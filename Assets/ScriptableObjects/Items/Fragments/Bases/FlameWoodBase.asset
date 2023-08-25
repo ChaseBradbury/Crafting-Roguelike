@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: fragment_base_wood_flame
   itemDisplayName: Flame-Imbued Wood Staff
-  description: 
+  description: Burns enemies in its path, dealing damage over time.
   icon: {fileID: 21300000, guid: b57eadc8e2461f847aa1c2ffaa2a5c3a, type: 3}
   tier: 0
   fragmentType: 3

@@ -7,6 +7,7 @@ public class EnemyController : EntityController
     private int id;
     private EnemySO enemy;
     [SerializeField] private AvatarController player;
+    private EnemyManager enemyManager;
     private int timeSinceLastAttack = 0;
 
 
@@ -25,11 +26,12 @@ public class EnemyController : EntityController
         Attack();
     }
 
-    public void Initialize(EnemySO enemy, Vector3 position, int id)
+    public void Initialize(EnemySO enemy, Vector3 position, int id, EnemyManager enemyManager)
     {
         this.id = id;
         this.enemy = enemy;
         transform.position = position;
+        this.enemyManager = enemyManager;
         InitializeEntity();
         //transform.Find("Sprite").localScale = new Vector3(enemy.size, enemy.size, 0);
         healthController.SetMaxHealth(enemy.health);
@@ -59,6 +61,7 @@ public class EnemyController : EntityController
 
     public override void HealthDrained()
     {
+        enemyManager.EnemyKilled(id);
         Destroy(gameObject);
     }
 }

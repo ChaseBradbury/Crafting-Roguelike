@@ -11,6 +11,9 @@ public class EnemySO : ScriptableObject
     [Tooltip("Name displayed when hovered.")]
     public string enemyName;
 
+    [Tooltip("Sprite for the enemy.")]
+    public Sprite sprite;
+
     [Tooltip("How much damage the enemy can take.")]
     public int health;
 

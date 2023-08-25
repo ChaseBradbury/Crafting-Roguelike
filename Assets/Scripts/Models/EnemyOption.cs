@@ -7,5 +7,11 @@ using UnityEngine;
 public class EnemyOption
 {
     public EnemySO enemy;
+    public int number;
     public int weight;
+
+    public int GetNumber()
+    {
+        return number * PlayerManager.CurrentLevel;
+    }
 }

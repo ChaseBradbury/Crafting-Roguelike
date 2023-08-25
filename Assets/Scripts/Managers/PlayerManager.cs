@@ -9,8 +9,12 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance;
     private static Inventory inventory;
     private static Weapon weapon;
+    private static int currentLevel = 1;
+    private static RoomSO currentRoom;
     public static Inventory Inventory { get => inventory; set => inventory = value; }
     public static Weapon Weapon { get => weapon; set => weapon = value; }
+    public static RoomSO CurrentRoom { get => currentRoom; set => currentRoom = value; }
+    public static int CurrentLevel { get => currentLevel; set => currentLevel = value; }
 
     private void Awake()
     {
@@ -32,13 +36,25 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public static void MoveToCombatScene()
+    public static void MoveToCombatScene(RoomSO room)
     {
+        currentRoom = room;
         SceneManager.LoadScene("CombatScene");
     }
 
-    public static void MoveToCraftingScene()
+    public static void BeatLevel()
     {
+        foreach (RewardOption reward in currentRoom.rewards)
+        {
+            inventory.AddItem(reward.element, reward.GetNumber());
+        }
+        ++currentLevel;
+        SceneManager.LoadScene("CraftingScene");
+    }
+
+    public static void LoseLevel()
+    {
+        CreateInventory(null);
         SceneManager.LoadScene("CraftingScene");
     }
 }
