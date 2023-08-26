@@ -54,6 +54,7 @@ public class CraftingManager : MonoBehaviour
             PlayerManager.Inventory.AddItem(heldItem, 1);
             dndCursor.DropItem();
             heldItem = null;
+            AudioManager.PlayPlaceSound();
         }
         
         inventoryController.RefreshUI();
@@ -66,6 +67,7 @@ public class CraftingManager : MonoBehaviour
             craftingController.AddToSlot(direction, heldItem);
             dndCursor.DropItem();
             heldItem = null;
+            AudioManager.PlayPlaceSound();
         }
         else
         {

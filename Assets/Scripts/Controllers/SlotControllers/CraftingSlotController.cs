@@ -8,6 +8,7 @@ public class CraftingSlotController : SlotController<ItemSO>
 
     public override void OnMouseDown()
     {
+        AudioManager.PlayLiftSound();
         craftingManager.OnMouseDownCrafting(direction);
     }
 }

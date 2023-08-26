@@ -6,6 +6,7 @@ public class OutputSlotController : SlotController<ItemSO>
 {
     public override void OnMouseDown()
     {
+        AudioManager.PlayCraftSound();
         craftingManager.OnMouseDownOutput(itemSO);
     }
 }

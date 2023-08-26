@@ -10,9 +10,9 @@ public class InventoryController : MonoBehaviour
     private Inventory inventory;
     [SerializeField] private Transform inventoryContent;
     [SerializeField] private Transform itemTemplate;
-    [SerializeField] float slotSize = 110f;
+    [SerializeField] Vector2 slotSize;
     [SerializeField] int rowLength = 6;
-    [SerializeField] float offset = 5f;
+    [SerializeField] Vector2 offset;
     private bool initialized = false;
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class InventoryController : MonoBehaviour
             int amount = inventoryItem.Value.amount;
             RectTransform itemTransform = Instantiate(itemTemplate, inventoryContent).GetComponent<RectTransform>();
             itemTransform.gameObject.SetActive(true);
-            itemTransform.anchoredPosition = new Vector2(x*slotSize + offset, -y*slotSize - offset);
+            itemTransform.anchoredPosition = new Vector2(x*slotSize.x + offset.x, -y*slotSize.y - offset.y);
             itemTransform.GetComponent<InventorySlotController>().AddSlotItem(item);
             itemTransform.Find("Name").GetComponent<TextMeshProUGUI>().text = item.itemDisplayName;
             if (amount > 1)
