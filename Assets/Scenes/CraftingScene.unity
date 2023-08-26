@@ -353,7 +353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &94899217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5596,6 +5596,7 @@ MonoBehaviour:
   possibleRooms:
   - {fileID: 11400000, guid: 8785e55bdd8612644a16dee6c0f7be84, type: 2}
   - {fileID: 11400000, guid: c75611f7174b17b4baf9b181f6e21344, type: 2}
+  - {fileID: 11400000, guid: 889867666b0f85b4fab03c029a80c137, type: 2}
 --- !u!1 &1624045584
 GameObject:
   m_ObjectHideFlags: 0

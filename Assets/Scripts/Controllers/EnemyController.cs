@@ -39,8 +39,14 @@ public class EnemyController : EntityController
 
     public void Move()
     {
-        Vector3 target = status.moveTo;
-        transform.position = Vector2.MoveTowards(transform.position, target, enemy.speed);
+        if (status.moveTo != (Vector2)player.transform.position)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, status.moveTo, enemy.speed);
+        }
+        else if (Vector2.Distance(transform.position, player.transform.position) > enemy.range)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.speed);
+        }
     }
 
     public void Attack()
