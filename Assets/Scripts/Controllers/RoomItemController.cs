@@ -16,6 +16,15 @@ public class RoomItemController : MonoBehaviour
         SetImage(image);
         SetName(name);
     }
+    public void Scale(float scale)
+    {
+        numberTransform.transform.localScale *= scale;
+        iconTransform.transform.localScale *= scale;
+        nameTransform.transform.localScale *= scale;
+        numberTransform.transform.localPosition *= scale;
+        iconTransform.transform.localPosition *= scale;
+        nameTransform.transform.localPosition *= scale;
+    }
 
     public void SetNumber(int number)
     {

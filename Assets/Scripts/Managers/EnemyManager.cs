@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float quadrantWidth;
     [SerializeField] private float quadrantHeight;
     [SerializeField] private Transform enemyTemplate;
+    [SerializeField] private RewardsController rewardsController;
     private int enemiesLeft = 0;
 
     public void Start()
@@ -37,7 +38,7 @@ public class EnemyManager : MonoBehaviour
         --enemiesLeft;
         if (enemiesLeft <= 0)
         {
-            PlayerManager.BeatLevel();
+            rewardsController.OpenRewardsScreen();
         }
     }
 }

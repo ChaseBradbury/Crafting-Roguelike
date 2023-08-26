@@ -55,6 +55,12 @@ public class PlayerManager : MonoBehaviour
     public static void LoseLevel()
     {
         CreateInventory(null);
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public static void StartGame()
+    {
         SceneManager.LoadScene("CraftingScene");
     }
+    
 }
