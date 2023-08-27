@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCode: enemy_octopusprisoner
   enemyName: Octopus Prisoner
+  sprite: {fileID: 0}
   health: 30
   size: 0.5
   speed: 0.01
   range: 1.5
-  effect: {fileID: 11400000, guid: 13fa84bca38c2354ea4915912fa5d6e8, type: 2}
+  effect: {fileID: 11400000, guid: 52d0ee694b1b9994590d4ddebb2dd4fe, type: 2}
   attackInterval: 150

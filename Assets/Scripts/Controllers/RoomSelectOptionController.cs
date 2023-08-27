@@ -20,7 +20,7 @@ public class RoomSelectOptionController : MonoBehaviour
         {
             Transform itemTransform = Instantiate(roomListItemTemplate, enemyList);
             itemTransform.localPosition = new Vector3(0, -i * listItemDistance, 0);
-            itemTransform.GetComponent<RoomItemController>().SetItemUI(enemyOption.GetNumber(), enemyOption.enemy.sprite, enemyOption.enemy.enemyName);
+            itemTransform.GetComponent<RoomItemController>().SetItemUI(enemyOption.GetNumber(room), enemyOption.enemy.sprite, enemyOption.enemy.enemyName);
             itemTransform.gameObject.SetActive(true);
             ++i;
         }

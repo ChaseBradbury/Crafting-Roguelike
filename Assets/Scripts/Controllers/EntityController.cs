@@ -6,6 +6,7 @@ using System.Linq;
 public abstract class EntityController : MonoBehaviour
 {
     protected HealthController healthController;
+    protected EffectUIController effectUIController;
     protected Dictionary<string, CombatEffectSO> continuousEffects;
     protected EntityStatus status;
     
@@ -13,6 +14,7 @@ public abstract class EntityController : MonoBehaviour
     {
         status = new EntityStatus();
         healthController = transform.GetComponent<HealthController>();
+        effectUIController = transform.GetComponent<EffectUIController>();
         continuousEffects = new Dictionary<string, CombatEffectSO>();
     }
 
@@ -25,19 +27,21 @@ public abstract class EntityController : MonoBehaviour
             if (effectReturn.terminated)
             {
                 continuousEffects.Remove(entry.Key);
+                effectUIController.DeleteEffectIcon(entry.Value);
             }
         }
     }
 
-    public void AddEffect(CombatEffectSO effect)
+    public void AddEffect(CombatEffectSO effect, float effectStrength)
     {
         CombatEffectSO clone = ScriptableObject.Instantiate(effect);
-        EffectReturn effectReturn = clone.Execute(this);
+        EffectReturn effectReturn = clone.Execute(this, effectStrength);
         EvaluateStatus(effectReturn.effectStatus);
-        if (!effectReturn.terminated)
+        if (!effectReturn.terminated && effectStrength > continuousEffects[clone.effectCode].EffectStrength)
         {
             continuousEffects[clone.effectCode] = clone;
         }
+        effectUIController.AddEffectIcon(effect, true);
     }
 
     public void EvaluateStatus(EntityStatus statusToEvaluate)

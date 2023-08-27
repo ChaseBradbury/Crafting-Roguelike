@@ -6,7 +6,7 @@ public class CraftingSlotController : SlotController<ItemSO>
 {
     [SerializeField] private SlotDirection direction;
 
-    public override void OnMouseDown()
+    public override void Select()
     {
         AudioManager.PlayLiftSound();
         craftingManager.OnMouseDownCrafting(direction);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OutputSlotController : SlotController<ItemSO>
 {
-    public override void OnMouseDown()
+    public override void Select()
     {
         AudioManager.PlayCraftSound();
         craftingManager.OnMouseDownOutput(itemSO);

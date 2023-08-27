@@ -13,20 +13,14 @@ MonoBehaviour:
   m_Name: Village Room
   m_EditorClassIdentifier: 
   roomName: Village
-  numberOfRewards: 0
   rewards:
   - element: {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
     number: 2
-    weight: 0
-    min: 0
-    max: 0
   - element: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
     number: 4
-    weight: 0
-    min: 0
-    max: 0
-  numberOfEnemies: 0
   enemies:
   - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
     number: 30
-    weight: 0
+    additionalPerLevel: 2
+  minLevel: 0
+  maxLevel: 10

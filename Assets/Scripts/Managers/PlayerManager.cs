@@ -9,17 +9,22 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance;
     private static Inventory inventory;
     private static Weapon weapon;
-    private static int currentLevel = 1;
+    private static int currentLevel = 0;
     private static RoomSO currentRoom;
     public static Inventory Inventory { get => inventory; set => inventory = value; }
     public static Weapon Weapon { get => weapon; set => weapon = value; }
     public static RoomSO CurrentRoom { get => currentRoom; set => currentRoom = value; }
     public static int CurrentLevel { get => currentLevel; set => currentLevel = value; }
+    public static bool tutorialComplete = false;
 
     private void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        if (PlayerPrefs.GetInt("tutorialComplete", 0) == 1)
+        {
+            tutorialComplete = true;
+        }
     }
 
     void Start()
@@ -54,12 +59,38 @@ public class PlayerManager : MonoBehaviour
 
     public static void LoseLevel()
     {
+        if (currentLevel > LoadHighscore())
+        {
+            SaveHighscore(currentLevel);
+        }
+        Reset();
         SceneManager.LoadScene("MainMenuScene");
+    }
+    public static void Reset()
+    {
+        currentLevel = 1;
+        currentRoom = null;
     }
 
     public static void StartGame()
     {
         SceneManager.LoadScene("CraftingScene");
     }
-    
+
+    public static void SaveHighscore(int score)
+    {
+        PlayerPrefs.SetInt("highscore", score);
+        PlayerPrefs.Save();
+    }
+
+    public static int LoadHighscore()
+    {
+        return PlayerPrefs.GetInt("highscore", 0);
+    }
+
+    public static void CompleteTutorial()
+    {
+        PlayerPrefs.SetInt("tutorialComplete", 1);
+        tutorialComplete = true;
+    }
 }

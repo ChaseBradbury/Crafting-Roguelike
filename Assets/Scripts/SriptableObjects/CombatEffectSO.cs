@@ -8,16 +8,21 @@ public abstract class CombatEffectSO : ScriptableObject
     public string effectCode;
     [Tooltip("Determines the order effects will be evaluated (ascending).")]
     public int priority;
+    [Tooltip("Shown above enemies affected by effect.")]
+    public Sprite sprite;
     public RepeatOptions repeatOptions;
     protected int repetitions = 0;
     protected int timeSinceLastRepeat = 0;
     protected EntityController entityController;
     protected EntityStatus status = new EntityStatus();
+    protected float effectStrength;
+    public float EffectStrength { get => effectStrength; set => effectStrength = value; }
 
-    public EffectReturn Execute(EntityController entityController)
+    public EffectReturn Execute(EntityController entityController, float strength)
     {
         EffectReturn effectReturn = new EffectReturn();
         this.entityController = entityController;
+        EffectStrength = strength;
         ExecuteEffect();
         if (repeatOptions.repeatable)
         {

@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Fragments/Ring Fragment")]
 public class RingFragmentSO : FragmentSO
 {
-    
+    public RingFragmentOptionSO fragmentOptions;
 }

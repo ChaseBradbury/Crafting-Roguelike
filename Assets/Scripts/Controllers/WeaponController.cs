@@ -54,7 +54,7 @@ public class WeaponController : MonoBehaviour
     public void AddToSlot(SlotDirection direction, FragmentSO item)
     {
         FragmentSlotController slotController = GetSlotController(direction);
-        if (slotController != null)
+        if (slotController != null && item != null)
         {
             slotController.AddSlotItem(item);
             PlayerManager.Weapon.UpdateFragment(item, direction);

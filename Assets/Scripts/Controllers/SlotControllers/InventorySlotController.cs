@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventorySlotController : SlotController<ItemSO>
 {
-    public override void OnMouseDown()
+    public override void Select()
     {
         AudioManager.PlayLiftSound();
         craftingManager.OnMouseDownInventoryItem(itemSO);

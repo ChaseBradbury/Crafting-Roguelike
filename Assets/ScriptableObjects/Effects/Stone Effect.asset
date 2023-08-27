@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectCode: attack_base_stone
   priority: 0
+  sprite: {fileID: 21300000, guid: d3b819076f1f0e44c99386e9a7b358b8, type: 3}
   repeatOptions:
     repeatable: 0
     repeatInterval: 0

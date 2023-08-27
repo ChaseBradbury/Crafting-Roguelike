@@ -13,20 +13,17 @@ MonoBehaviour:
   m_Name: Island
   m_EditorClassIdentifier: 
   roomName: Island
-  numberOfRewards: 0
   rewards:
   - element: {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
     number: 2
-    weight: 0
-    min: 0
-    max: 0
   - element: {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
     number: 2
-    weight: 0
-    min: 0
-    max: 0
-  numberOfEnemies: 0
   enemies:
   - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
-    number: 15
-    weight: 0
+    number: 10
+    additionalPerLevel: 1
+  - enemy: {fileID: 11400000, guid: 2cc103e57abc9694f8a08af67b5ad2c6, type: 2}
+    number: 2
+    additionalPerLevel: 0
+  minLevel: 0
+  maxLevel: 5

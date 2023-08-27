@@ -6,7 +6,7 @@ public class FragmentSlotController : SlotController<FragmentSO>
 {
     [SerializeField] private FragmentType fragmentTypeAccepted;
 
-    public override void OnMouseDown()
+    public override void Select()
     {
         // Does nothing
     }

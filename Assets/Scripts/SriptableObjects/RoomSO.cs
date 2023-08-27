@@ -6,8 +6,13 @@ using UnityEngine;
 public class RoomSO : ScriptableObject
 {
     public string roomName;
-    public int numberOfRewards;
     public RewardOption[] rewards;
-    public int numberOfEnemies;
     public EnemyOption[] enemies;
+    public int minLevel;
+    public int maxLevel;
+
+    public bool InPoolForLevel(int level)
+    {
+        return level >= minLevel && level <= maxLevel;
+    }
 }

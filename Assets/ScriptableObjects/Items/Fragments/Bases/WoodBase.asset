@@ -15,7 +15,7 @@ MonoBehaviour:
   itemCode: fragment_base_wood
   itemDisplayName: Wood Staff
   description: 
-  icon: {fileID: 21300000, guid: d04b0bb216523064d847e91092c8bf90, type: 3}
+  icon: {fileID: 21300000, guid: 2675d4ac143b4544e8cfa1981c9693f7, type: 3}
   tier: 0
   fragmentType: 3
   imbuement: {fileID: 0}

@@ -11,6 +11,7 @@ public class ProjectileController : MonoBehaviour
     private int ringIndex;
     private float pathLerpPosition = 0;
     private Dictionary<string, EnemyController> enemyDictionary;
+    private float attackStrength;
 
     // Start is called before the first frame update
     void Start()
@@ -33,18 +34,19 @@ public class ProjectileController : MonoBehaviour
         }
     }
 
-    public void Shoot(int ringIndex, Vector2 start, Vector2 target, float radius)
+    public void Shoot(int ringIndex, Vector2 start, Vector2 target, float radius, float attackStrength)
     {
         startPosition = start;
         targetPosition = target;
         targetRadius = radius;
         this.ringIndex = ringIndex;
         enemyDictionary = new Dictionary<string, EnemyController>();
+        this.attackStrength = attackStrength;
     }
 
     public void RunBy()
     {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, PlayerManager.Weapon.BaseFragment.fragmentOptions.projectileSize);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, targetRadius);
         foreach (Collider2D enemy in enemies)
         {
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
@@ -73,7 +75,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (!enemyDictionary.ContainsKey(enemy.Id + fragment.itemCode))
         {
-            enemy.AddEffect(fragment.combatEffect);
+            enemy.AddEffect(fragment.combatEffect, attackStrength);
             enemyDictionary.Add(enemy.Id+ fragment.itemCode, enemy);
         }
     }

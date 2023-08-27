@@ -10,15 +10,14 @@ public class CombatInputManager : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private Transform playerObject;
     [SerializeField] private Transform projectileTemplate;
-    [SerializeField] private float targetMinSize = 0.5f;
-    [SerializeField] private float targetMaxSize = 3.0f;
-    [SerializeField] private float targetGrowthRate = 0.1f;
+    private float targetGrowthRateCurrent;
     private WeaponMode weaponMode;
     private int weaponRingIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetGrowthRate;
     }
 
     void FixedUpdate()
@@ -27,21 +26,23 @@ public class CombatInputManager : MonoBehaviour
         {
             if (targetGrowing)
             {
-                targetCurrentSize += targetGrowthRate;
-                if (targetCurrentSize >= targetMaxSize)
+                RingFragmentOptionSO fragmentOptions = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions;
+                targetCurrentSize += targetGrowthRateCurrent;
+                targetGrowthRateCurrent *= fragmentOptions.targetGrowthAcceleration;
+                if (targetCurrentSize >= fragmentOptions.targetMaxSize)
                 {
-                    targetCurrentSize = targetMaxSize;
+                    targetCurrentSize = fragmentOptions.targetMaxSize;
                     targetGrowing = false;
                 }
             }
             else
             {
-                targetCurrentSize -= targetGrowthRate;
-                if (targetCurrentSize <= targetMinSize)
-                {
-                    targetCurrentSize = targetMinSize;
-                    targetGrowing = true;
-                }
+                // targetCurrentSize -= targetGrowthRate;
+                // if (targetCurrentSize <= targetMinSize)
+                // {
+                //     targetCurrentSize = targetMinSize;
+                //     targetGrowing = true;
+                // }
             }
             target.localScale = new Vector3(targetCurrentSize, targetCurrentSize, 1);
         }
@@ -66,17 +67,18 @@ public class CombatInputManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            targetCurrentSize = targetMinSize;
+            targetCurrentSize = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetMinSize;
             targetGrowing = true;
             pointerHeld = true;
             target.localScale = new Vector3(targetCurrentSize, targetCurrentSize, 1);
             target.Find("Sprite").gameObject.SetActive(pointerHeld);
+            targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetGrowthRate;
         }
         if (Input.GetMouseButtonUp(0))
         {
             pointerHeld = false;
             target.Find("Sprite").gameObject.SetActive(pointerHeld);
-            StartAttack(playerObject.position, worldPos, targetCurrentSize/2, angle);
+            StartAttack(playerObject.position, worldPos, targetCurrentSize/2);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -112,12 +114,14 @@ public class CombatInputManager : MonoBehaviour
         index = index % PlayerManager.Weapon.RingFragments.Length;
         weaponRingIndex = index;
         weaponMode.RingFragment = PlayerManager.Weapon.RingFragments[weaponRingIndex];
+        targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetGrowthRate;
     }
 
-    public void StartAttack(Vector2 playerPosition, Vector2 targetPosition, float size, float angle)
+    public void StartAttack(Vector2 playerPosition, Vector2 targetPosition, float size)
     {
+        float strength = 2 * size / PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetMaxSize;
         Transform projectileTransform = Instantiate(projectileTemplate, transform).GetComponent<Transform>();
-        projectileTransform.GetComponent<ProjectileController>().Shoot(weaponRingIndex, playerPosition, targetPosition, size);
+        projectileTransform.GetComponent<ProjectileController>().Shoot(weaponRingIndex, playerPosition, targetPosition, size, strength);
         projectileTransform.gameObject.SetActive(true);
     }
 }

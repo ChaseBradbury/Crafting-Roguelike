@@ -6,15 +6,24 @@ public class RoomSelectController : MonoBehaviour
 {
     [SerializeField] private Transform roomSelectTemplate;
     [SerializeField] private Transform[] roomOptionAreas = new Transform[3];
-    [SerializeField] private RoomSO[] possibleRooms;
+    [SerializeField] private RoomSO[] totalRooms;
+    private List<RoomSO> possibleRooms;
     private int[] roomIndices = new int[3];
     private Transform hideableTransform;
 
     public void Start()
     {
+        possibleRooms = new List<RoomSO>();
+        foreach (RoomSO room in totalRooms)
+        {
+            if (room.InPoolForLevel(PlayerManager.CurrentLevel))
+            {
+                possibleRooms.Add(room);
+            }
+        }
         for (int i = 0; i < roomIndices.Length; ++i)
         {
-            roomIndices[i] = Random.Range(0, possibleRooms.Length);
+            roomIndices[i] = Random.Range(0, possibleRooms.Count);
             CreateRoomOption(i);
         }
         hideableTransform = transform.Find("Hideable");
@@ -22,9 +31,9 @@ public class RoomSelectController : MonoBehaviour
 
     public void OpenRoomSelect()
     {
+        
+
         hideableTransform.gameObject.SetActive(true);
-        
-        
     }
 
     public void CreateRoomOption(int index)

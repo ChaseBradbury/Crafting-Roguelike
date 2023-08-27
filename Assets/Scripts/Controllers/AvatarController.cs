@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AvatarController : EntityController
 {
+    [SerializeField] private GameOverController gameOverController;
+
     void Start()
     {
         InitializeEntity();
@@ -16,6 +18,6 @@ public class AvatarController : EntityController
 
     public override void HealthDrained()
     {
-        PlayerManager.LoseLevel();
+        gameOverController.OpenGameOverScreen();
     }
 }

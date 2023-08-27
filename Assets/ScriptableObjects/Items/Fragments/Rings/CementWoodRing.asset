@@ -20,3 +20,4 @@ MonoBehaviour:
   fragmentType: 2
   imbuement: {fileID: 0}
   combatEffect: {fileID: 11400000, guid: 47788f555348ddf41bb54c492bcc3bc0, type: 2}
+  fragmentOptions: {fileID: 11400000, guid: 47a6d61094d23f34ca02e049a29b0bbb, type: 2}

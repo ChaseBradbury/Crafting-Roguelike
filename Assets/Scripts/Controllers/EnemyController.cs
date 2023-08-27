@@ -56,7 +56,7 @@ public class EnemyController : EntityController
             if (timeSinceLastAttack >= enemy.attackInterval)
             {
                 timeSinceLastAttack = 0;
-                player.AddEffect(enemy.effect);
+                player.AddEffect(enemy.effect, 1);
             }
             else
             {

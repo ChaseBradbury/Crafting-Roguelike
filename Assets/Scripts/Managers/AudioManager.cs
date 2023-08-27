@@ -7,16 +7,32 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     [SerializeField] private Sound[] sounds;
-    public static Dictionary<string, Sound> soundDictionary;
+    [SerializeField] private Sound[] musics;
+    private static Dictionary<string, Sound> soundDictionary;
+    private static Dictionary<string, Sound> musicDictionary;
+    private static AudioSource musicSource;
 
     void Awake()
     {
-        soundDictionary = new Dictionary<string, Sound>();
-        foreach (Sound sound in sounds)
+        if (Instance == null)
         {
-            sound.AudioSource = gameObject.AddComponent<AudioSource>();
-            sound.AudioSource.clip = sound.audioClip;
-            soundDictionary[sound.name] = sound;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            soundDictionary = new Dictionary<string, Sound>();
+            foreach (Sound sound in sounds)
+            {
+                sound.AudioSource = gameObject.AddComponent<AudioSource>();
+                sound.AudioSource.clip = sound.audioClip;
+                soundDictionary[sound.name] = sound;
+            }
+            musicSource = gameObject.AddComponent<AudioSource>();
+            musicSource.loop = true;
+            musicDictionary = new Dictionary<string, Sound>();
+            foreach (Sound music in musics)
+            {
+                musicDictionary[music.name] = music;
+            }
+            PlayMusic("crafting", false);
         }
     }
 
@@ -52,5 +68,34 @@ public class AudioManager : MonoBehaviour
     public static void PlayLiftSound()
     {
         PlayRandom("lift", 4);
+    }
+
+    public static void PlayMusic(string name, bool queue)
+    {
+        if (musicDictionary.ContainsKey(name))
+        {
+            if (queue)
+            {
+                Instance.StartCoroutine(QueueMusic(name));
+            }
+            else
+            {
+                musicSource.clip = musicDictionary[name].audioClip;
+                musicSource.volume = musicDictionary[name].volume;
+                musicSource.Play();
+            }
+
+        }
+    }
+    
+    public static IEnumerator QueueMusic(string name)
+    {
+        if (musicDictionary.ContainsKey(name))
+        {
+            yield return new WaitForSeconds(musicSource.clip.length);
+            musicSource.clip = musicDictionary[name].audioClip;
+            musicSource.volume = musicDictionary[name].volume;
+            musicSource.Play();
+        }
     }
 }

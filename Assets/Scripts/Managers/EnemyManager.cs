@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
         int id = 0;
         foreach (EnemyOption enemyOption in PlayerManager.CurrentRoom.enemies)
         {
-            for (int i = 0; i < enemyOption.GetNumber(); i++)
+            for (int i = 0; i < enemyOption.GetNumber(PlayerManager.CurrentRoom); i++)
             {
                 SpawnEnemy(enemyOption.enemy, id++);
             }
