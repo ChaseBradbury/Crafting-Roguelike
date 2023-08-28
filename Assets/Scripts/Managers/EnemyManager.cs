@@ -38,6 +38,7 @@ public class EnemyManager : MonoBehaviour
         --enemiesLeft;
         if (enemiesLeft <= 0)
         {
+            PlayerManager.levelOver = true;
             rewardsController.OpenRewardsScreen();
         }
     }

@@ -22,83 +22,89 @@ public class CombatInputManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (pointerHeld)
+        if (!PlayerManager.levelOver)
         {
-            if (targetGrowing)
+            if (pointerHeld)
             {
-                RingFragmentOptionSO fragmentOptions = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions;
-                targetCurrentSize += targetGrowthRateCurrent;
-                targetGrowthRateCurrent *= fragmentOptions.targetGrowthAcceleration;
-                if (targetCurrentSize >= fragmentOptions.targetMaxSize)
+                if (targetGrowing)
                 {
-                    targetCurrentSize = fragmentOptions.targetMaxSize;
-                    targetGrowing = false;
+                    RingFragmentOptionSO fragmentOptions = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions;
+                    targetCurrentSize += targetGrowthRateCurrent;
+                    targetGrowthRateCurrent *= fragmentOptions.targetGrowthAcceleration;
+                    if (targetCurrentSize >= fragmentOptions.targetMaxSize)
+                    {
+                        targetCurrentSize = fragmentOptions.targetMaxSize;
+                        targetGrowing = false;
+                    }
                 }
+                else
+                {
+                    // targetCurrentSize -= targetGrowthRate;
+                    // if (targetCurrentSize <= targetMinSize)
+                    // {
+                    //     targetCurrentSize = targetMinSize;
+                    //     targetGrowing = true;
+                    // }
+                }
+                target.localScale = new Vector3(targetCurrentSize, targetCurrentSize, 1);
             }
-            else
-            {
-                // targetCurrentSize -= targetGrowthRate;
-                // if (targetCurrentSize <= targetMinSize)
-                // {
-                //     targetCurrentSize = targetMinSize;
-                //     targetGrowing = true;
-                // }
-            }
-            target.localScale = new Vector3(targetCurrentSize, targetCurrentSize, 1);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (weaponMode == null && PlayerManager.Weapon != null)
+        if (!PlayerManager.levelOver)
         {
-            SetWeaponMode();
-        }
+            if (weaponMode == null && PlayerManager.Weapon != null)
+            {
+                SetWeaponMode();
+            }
 
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Camera.main.nearClipPlane;
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-        target.position = worldPos;
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = Camera.main.nearClipPlane;
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+            target.position = worldPos;
 
-        Vector2 playerDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.position;
-        float angle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
-        playerObject.rotation = Quaternion.AngleAxis(angle - 45, Vector3.forward);
+            Vector2 playerDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.position;
+            float angle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
+            playerObject.rotation = Quaternion.AngleAxis(angle - 135, Vector3.forward);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            targetCurrentSize = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetMinSize;
-            targetGrowing = true;
-            pointerHeld = true;
-            target.localScale = new Vector3(targetCurrentSize, targetCurrentSize, 1);
-            target.Find("Sprite").gameObject.SetActive(pointerHeld);
-            targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetGrowthRate;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            pointerHeld = false;
-            target.Find("Sprite").gameObject.SetActive(pointerHeld);
-            StartAttack(playerObject.position, worldPos, targetCurrentSize/2);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UpdateWeaponMode(++weaponRingIndex);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            UpdateWeaponMode(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            UpdateWeaponMode(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            UpdateWeaponMode(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            UpdateWeaponMode(3);
+            if (Input.GetMouseButtonDown(0))
+            {
+                targetCurrentSize = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetMinSize;
+                targetGrowing = true;
+                pointerHeld = true;
+                target.localScale = new Vector3(targetCurrentSize, targetCurrentSize, 1);
+                target.Find("Sprite").gameObject.SetActive(pointerHeld);
+                targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetGrowthRate;
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                pointerHeld = false;
+                target.Find("Sprite").gameObject.SetActive(pointerHeld);
+                StartAttack(playerObject.position, worldPos, targetCurrentSize/2);
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                UpdateWeaponMode(++weaponRingIndex);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                UpdateWeaponMode(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                UpdateWeaponMode(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                UpdateWeaponMode(2);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                UpdateWeaponMode(3);
+            }
         }
     }
 

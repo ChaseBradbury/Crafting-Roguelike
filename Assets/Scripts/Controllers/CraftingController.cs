@@ -131,13 +131,13 @@ public class CraftingController : MonoBehaviour
     {
         switch (direction)
         {
-            case SlotDirection.North:
+            case SlotDirection.CraftingNorth:
                 return northCraftingSlot;
-            case SlotDirection.East:
+            case SlotDirection.CraftingEast:
                 return eastCraftingSlot;
-            case SlotDirection.South:
+            case SlotDirection.CraftingSouth:
                 return southCraftingSlot;
-            case SlotDirection.West:
+            case SlotDirection.CraftingWest:
                 return westCraftingSlot;
             case SlotDirection.Output:
                 return outputSlot;
@@ -150,10 +150,10 @@ public class CraftingController : MonoBehaviour
     public ItemSO Craft()
     {
         ItemSO outputItem = outputSlot.RemoveSlotItem();
-        RemoveFromSlot(SlotDirection.North);
-        RemoveFromSlot(SlotDirection.East);
-        RemoveFromSlot(SlotDirection.South);
-        RemoveFromSlot(SlotDirection.West);
+        RemoveFromSlot(SlotDirection.CraftingNorth);
+        RemoveFromSlot(SlotDirection.CraftingEast);
+        RemoveFromSlot(SlotDirection.CraftingSouth);
+        RemoveFromSlot(SlotDirection.CraftingWest);
         return outputItem;
     }
 }

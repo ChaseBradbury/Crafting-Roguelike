@@ -7,4 +7,5 @@ public class EntityStatus
     public bool lockMovement = false;
     public bool hijackMovement = false;
     public Vector2 moveTo;
+    public float speedModifier = 1;
 }

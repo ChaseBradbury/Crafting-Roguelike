@@ -10,6 +10,7 @@ public class RoomSO : ScriptableObject
     public EnemyOption[] enemies;
     public int minLevel;
     public int maxLevel;
+    public Color tileColor;
 
     public bool InPoolForLevel(int level)
     {

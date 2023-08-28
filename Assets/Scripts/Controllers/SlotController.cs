@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class SlotController<T> : MonoBehaviour where T : ItemSO
+public abstract class SlotController<T> : MonoBehaviour  where T : ItemSO
 {
     protected T itemSO;
     [SerializeField] protected Sprite emptySprite;
     [SerializeField] protected CraftingManager craftingManager;
     private List<TutorialStep> tutorialSteps;
+    [SerializeField] protected SlotDirection direction;
 
 
     public T ItemSO { get => itemSO; set => itemSO = value; }
@@ -41,21 +42,28 @@ public abstract class SlotController<T> : MonoBehaviour where T : ItemSO
 
     public void Hover()
     {
-        craftingManager.HoverSlot(itemSO);
+        craftingManager.HoverSlot(direction, itemSO);
     }
 
     public void Leave()
     {
-        craftingManager.LeaveSlot();
+        craftingManager.LeaveSlot(direction);
     }
 
-    public void OnMouseDown()
+    public void MouseDown()
     {
         CheckTutorialSteps(false);
-        Select();
+        Drag();
     }
 
-    public abstract void Select();
+    public void MouseUp()
+    {
+        CheckTutorialSteps(true);
+        Drop();
+    }
+
+    public abstract void Drag();
+    public abstract void Drop();
 
     public void AddTutorialStep(TutorialStep step)
     {

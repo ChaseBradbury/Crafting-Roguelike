@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     private static Dictionary<string, Sound> soundDictionary;
     private static Dictionary<string, Sound> musicDictionary;
     private static AudioSource musicSource;
+    private static AudioSource attackSource;
+    private static AudioSource impactSource;
 
     void Awake()
     {
@@ -33,6 +35,8 @@ public class AudioManager : MonoBehaviour
                 musicDictionary[music.name] = music;
             }
             PlayMusic("crafting", false);
+            attackSource = gameObject.AddComponent<AudioSource>();
+            impactSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
@@ -53,6 +57,11 @@ public class AudioManager : MonoBehaviour
     {
         int number = UnityEngine.Random.Range(0, numOptions);
         Play(name + number);
+    }
+
+    public static void PlayButtonSound()
+    {
+        Play("button");
     }
 
     public static void PlayCraftSound()
@@ -96,6 +105,26 @@ public class AudioManager : MonoBehaviour
             musicSource.clip = musicDictionary[name].audioClip;
             musicSource.volume = musicDictionary[name].volume;
             musicSource.Play();
+        }
+    }
+
+    public static void PlayAttack(Sound sound, float volume)
+    {
+        if (sound != null)
+        {
+            attackSource.clip = sound.audioClip;
+            attackSource.volume = sound.volume * volume;
+            attackSource.Play();
+        }
+    }
+
+    public static void PlayImpact(Sound sound, float volume)
+    {
+        if (sound != null)
+        {
+            impactSource.clip = sound.audioClip;
+            impactSource.volume = sound.volume * volume;
+            impactSource.Play();
         }
     }
 }

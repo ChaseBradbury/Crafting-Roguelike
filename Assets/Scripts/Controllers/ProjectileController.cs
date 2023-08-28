@@ -42,6 +42,7 @@ public class ProjectileController : MonoBehaviour
         this.ringIndex = ringIndex;
         enemyDictionary = new Dictionary<string, EnemyController>();
         this.attackStrength = attackStrength;
+        AudioManager.PlayAttack(PlayerManager.Weapon.BaseFragment.sound, attackStrength);
     }
 
     public void RunBy()
@@ -68,6 +69,7 @@ public class ProjectileController : MonoBehaviour
                 AddEffectToEnemy(enemyController, PlayerManager.Weapon.RingFragments[ringIndex]);
             }
         }
+        AudioManager.PlayAttack(PlayerManager.Weapon.RingFragments[ringIndex].sound, attackStrength);
         Destroy(gameObject);
     }
 
@@ -75,8 +77,8 @@ public class ProjectileController : MonoBehaviour
     {
         if (!enemyDictionary.ContainsKey(enemy.Id + fragment.itemCode))
         {
-            enemy.AddEffect(fragment.combatEffect, attackStrength);
-            enemyDictionary.Add(enemy.Id+ fragment.itemCode, enemy);
+            enemy.AddEffect(fragment.combatEffect, attackStrength, targetPosition);
+            enemyDictionary.Add(enemy.Id + fragment.itemCode, enemy);
         }
     }
 }

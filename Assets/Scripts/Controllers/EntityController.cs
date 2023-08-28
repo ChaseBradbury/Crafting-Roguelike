@@ -32,11 +32,15 @@ public abstract class EntityController : MonoBehaviour
         }
     }
 
-    public void AddEffect(CombatEffectSO effect, float effectStrength)
+    public void AddEffect(CombatEffectSO effect, float effectStrength, Vector2 effectTarget)
     {
         CombatEffectSO clone = ScriptableObject.Instantiate(effect);
-        EffectReturn effectReturn = clone.Execute(this, effectStrength);
+        EffectReturn effectReturn = clone.Execute(this, effectStrength, effectTarget);
         EvaluateStatus(effectReturn.effectStatus);
+        if (!continuousEffects.ContainsKey(clone.effectCode))
+        {
+            continuousEffects.Add(clone.effectCode, clone);
+        }
         if (!effectReturn.terminated && effectStrength > continuousEffects[clone.effectCode].EffectStrength)
         {
             continuousEffects[clone.effectCode] = clone;
@@ -54,6 +58,7 @@ public abstract class EntityController : MonoBehaviour
         {
             status.moveTo = statusToEvaluate.moveTo;
         }
+        status.speedModifier *= statusToEvaluate.speedModifier;
     }
 
     public abstract void HealthDrained();

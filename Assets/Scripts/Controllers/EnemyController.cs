@@ -15,15 +15,19 @@ public class EnemyController : EntityController
 
     void FixedUpdate()
     {
-        status.moveTo = player.transform.position;
-        status.lockMovement = false;
-        DoContinuousEffects();
-        // if (Vector2.Distance(transform.position, player.transform.position) > enemy.range)
-        if (!status.lockMovement)
+        if (!PlayerManager.levelOver)
         {
-            Move();
+            status.moveTo = player.transform.position;
+            status.lockMovement = false;
+            status.speedModifier = 1;
+            DoContinuousEffects();
+            // if (Vector2.Distance(transform.position, player.transform.position) > enemy.range)
+            if (!status.lockMovement)
+            {
+                Move();
+            }
+            Attack();
         }
-        Attack();
     }
 
     public void Initialize(EnemySO enemy, Vector3 position, int id, EnemyManager enemyManager)
@@ -33,7 +37,9 @@ public class EnemyController : EntityController
         transform.position = position;
         this.enemyManager = enemyManager;
         InitializeEntity();
-        //transform.Find("Sprite").localScale = new Vector3(enemy.size, enemy.size, 0);
+        Transform sprite = transform.Find("Sprite");
+        sprite.localScale = new Vector3(enemy.size, enemy.size, 0);
+        sprite.GetComponent<SpriteRenderer>().sprite = enemy.sprite;
         healthController.SetMaxHealth(enemy.health);
     }
 
@@ -41,11 +47,11 @@ public class EnemyController : EntityController
     {
         if (status.moveTo != (Vector2)player.transform.position)
         {
-            transform.position = Vector2.MoveTowards(transform.position, status.moveTo, enemy.speed);
+            transform.position = Vector2.MoveTowards(transform.position, status.moveTo, enemy.speed * status.speedModifier);
         }
         else if (Vector2.Distance(transform.position, player.transform.position) > enemy.range)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.speed);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.speed * status.speedModifier);
         }
     }
 
@@ -56,7 +62,7 @@ public class EnemyController : EntityController
             if (timeSinceLastAttack >= enemy.attackInterval)
             {
                 timeSinceLastAttack = 0;
-                player.AddEffect(enemy.effect, 1);
+                player.AddEffect(enemy.effect, 1, transform.position);
             }
             else
             {

@@ -13,11 +13,15 @@ public class AvatarController : EntityController
 
     void FixedUpdate()
     {
-        DoContinuousEffects();
+        if (!PlayerManager.levelOver)
+        {
+            DoContinuousEffects();
+        }
     }
 
     public override void HealthDrained()
     {
+        PlayerManager.levelOver = true;
         gameOverController.OpenGameOverScreen();
     }
 }

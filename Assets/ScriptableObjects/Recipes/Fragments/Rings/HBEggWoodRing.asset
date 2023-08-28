@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8759f4ba1afaaa946af78ecd1174bbef, type: 3}
+  m_Name: HBEggWoodRing
+  m_EditorClassIdentifier: 
+  northSlot: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  eastSlot: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  southSlot: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  westSlot: {fileID: 11400000, guid: e70a25eb240838b42b235423430f96ab, type: 2}
+  positionMatters: 0
+  outputItem: {fileID: 11400000, guid: 78784eab126473741b60976cbc111297, type: 2}

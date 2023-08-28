@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class CraftingSlotController : SlotController<ItemSO>
 {
-    [SerializeField] private SlotDirection direction;
 
-    public override void Select()
+    public override void Drag()
     {
         AudioManager.PlayLiftSound();
         craftingManager.OnMouseDownCrafting(direction);
+    }
+    
+    public override void Drop()
+    {
+        // craftingManager.OnMouseUpCrafting(direction);
     }
 }

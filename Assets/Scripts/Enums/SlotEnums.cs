@@ -6,12 +6,16 @@ using UnityEngine;
 [Serializable]
 public enum SlotDirection
 {
+    Null,
+    CraftingNorth,
+    CraftingEast,
+    CraftingSouth,
+    CraftingWest,
     North,
     East,
     South,
     West,
     Output,
     Center,
-    Base,
-    Null
+    Base
 }

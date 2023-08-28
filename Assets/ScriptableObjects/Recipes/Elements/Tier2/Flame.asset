@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   northSlot: {fileID: 11400000, guid: 2ffff10dad75593419f9621758c863bc, type: 2}
   eastSlot: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-  southSlot: {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
+  southSlot: {fileID: 11400000, guid: 0ba1e98893aefc74a94d8b26de1393c7, type: 2}
   westSlot: {fileID: 0}
   positionMatters: 0
   outputItem: {fileID: 11400000, guid: a711512cdd20e184a961247ffd565881, type: 2}

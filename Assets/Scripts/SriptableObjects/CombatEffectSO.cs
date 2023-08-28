@@ -17,12 +17,15 @@ public abstract class CombatEffectSO : ScriptableObject
     protected EntityStatus status = new EntityStatus();
     protected float effectStrength;
     public float EffectStrength { get => effectStrength; set => effectStrength = value; }
+    protected Vector2 effectTarget;
+    public Vector2 EffectTarget { get => effectTarget; set => effectTarget = value; }
 
-    public EffectReturn Execute(EntityController entityController, float strength)
+    public EffectReturn Execute(EntityController entityController, float strength, Vector2 target)
     {
         EffectReturn effectReturn = new EffectReturn();
         this.entityController = entityController;
         EffectStrength = strength;
+        EffectTarget = target;
         ExecuteEffect();
         if (repeatOptions.repeatable)
         {

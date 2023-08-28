@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6991717e12c5824d82bbba7d555b71d, type: 3}
+  m_Name: EggWoodRing
+  m_EditorClassIdentifier: 
+  itemCode: ring_wood_egg
+  itemDisplayName: Egg-Imbued Wood Ring
+  description: 
+  icon: {fileID: 21300000, guid: 4b208d04bc7af9a4eae90a2a838c7dd5, type: 3}
+  tier: 0
+  fragmentType: 2
+  sound:
+    name: 
+    audioClip: {fileID: 8300000, guid: 2cd6e864250fb9442bc523a0cbb3476e, type: 3}
+    volume: 1
+  combatEffect: {fileID: 11400000, guid: c56f680485df168438dc8d8060a852d5, type: 2}
+  fragmentOptions: {fileID: 11400000, guid: 47a6d61094d23f34ca02e049a29b0bbb, type: 2}

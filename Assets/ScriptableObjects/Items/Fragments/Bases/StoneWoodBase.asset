@@ -16,9 +16,12 @@ MonoBehaviour:
   itemDisplayName: Stone-Imbued Wood Staff
   description: Hurls a stone that smashes through enemies in its way, dealing direct
     damage.
-  icon: {fileID: 21300000, guid: d7c81829489984c4d8a899fe160e6161, type: 3}
+  icon: {fileID: 21300000, guid: 434266b20e201bc48921e0a4b66319c6, type: 3}
   tier: 0
   fragmentType: 3
-  imbuement: {fileID: 0}
+  sound:
+    name: 
+    audioClip: {fileID: 8300000, guid: 8411d34aab70df646a1e6abfc14b370a, type: 3}
+    volume: 1
   combatEffect: {fileID: 11400000, guid: 52d0ee694b1b9994590d4ddebb2dd4fe, type: 2}
   fragmentOptions: {fileID: 11400000, guid: d61775e4bed0ef641ab0d92daa9a02ea, type: 2}

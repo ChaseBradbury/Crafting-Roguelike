@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f973f965ea0244a9f054dfc14d8bd4, type: 3}
+  m_Name: Metal Effet
+  m_EditorClassIdentifier: 
+  effectCode: attack_metal
+  priority: 0
+  sprite: {fileID: 21300000, guid: 0af0ce867ed004149a0034c4b450c332, type: 3}
+  repeatOptions:
+    repeatable: 0
+    repeatInterval: 0
+    repetitionNumber: 0
+  damage: 8

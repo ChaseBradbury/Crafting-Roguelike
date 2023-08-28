@@ -5,6 +5,6 @@ using UnityEngine;
 public class FragmentSO : ItemSO
 {
     public FragmentType fragmentType;
-    public ElementSO imbuement;
+    public Sound sound;
     public CombatEffectSO combatEffect;
 }

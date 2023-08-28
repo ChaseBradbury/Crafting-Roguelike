@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     public static RoomSO CurrentRoom { get => currentRoom; set => currentRoom = value; }
     public static int CurrentLevel { get => currentLevel; set => currentLevel = value; }
     public static bool tutorialComplete = false;
+    public static bool levelOver = false;
 
     private void Awake()
     {
@@ -44,6 +45,7 @@ public class PlayerManager : MonoBehaviour
     public static void MoveToCombatScene(RoomSO room)
     {
         currentRoom = room;
+        AudioManager.PlayButtonSound();
         SceneManager.LoadScene("CombatScene");
     }
 
@@ -54,6 +56,8 @@ public class PlayerManager : MonoBehaviour
             inventory.AddItem(reward.element, reward.GetNumber());
         }
         ++currentLevel;
+        levelOver = false;
+        AudioManager.PlayButtonSound();
         SceneManager.LoadScene("CraftingScene");
     }
 
@@ -64,16 +68,19 @@ public class PlayerManager : MonoBehaviour
             SaveHighscore(currentLevel);
         }
         Reset();
+        AudioManager.PlayButtonSound();
         SceneManager.LoadScene("MainMenuScene");
     }
     public static void Reset()
     {
         currentLevel = 1;
         currentRoom = null;
+        levelOver = false;
     }
 
     public static void StartGame()
     {
+        AudioManager.PlayButtonSound();
         SceneManager.LoadScene("CraftingScene");
     }
 

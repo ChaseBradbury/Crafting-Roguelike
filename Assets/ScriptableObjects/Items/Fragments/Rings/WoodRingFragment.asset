@@ -15,9 +15,12 @@ MonoBehaviour:
   itemCode: fragment_ring_wood
   itemDisplayName: Wood Ring
   description: 
-  icon: {fileID: 21300000, guid: d9b07e13bde2918489f6087e0e7ae076, type: 3}
+  icon: {fileID: 21300000, guid: 2675d4ac143b4544e8cfa1981c9693f7, type: 3}
   tier: 0
   fragmentType: 2
-  imbuement: {fileID: 0}
+  sound:
+    name: 
+    audioClip: {fileID: 8300000, guid: 77db8774c7975774aa1a8659250d8773, type: 3}
+    volume: 1
   combatEffect: {fileID: 11400000, guid: 13fa84bca38c2354ea4915912fa5d6e8, type: 2}
   fragmentOptions: {fileID: 11400000, guid: 47a6d61094d23f34ca02e049a29b0bbb, type: 2}

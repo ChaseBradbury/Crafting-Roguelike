@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomSelectOptionController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class RoomSelectOptionController : MonoBehaviour
     {
         this.room = room;
         transform.Find("Title").GetComponent<TextMeshProUGUI>().text = room.roomName;
+        transform.Find("Image").GetComponent<Image>().color = room.tileColor;
         int i = 0;
         foreach (EnemyOption enemyOption in room.enemies)
         {

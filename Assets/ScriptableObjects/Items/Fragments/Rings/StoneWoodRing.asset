@@ -15,9 +15,12 @@ MonoBehaviour:
   itemCode: fragment_ring_wood_stone
   itemDisplayName: Stone-Imbued Wood Ring
   description: 
-  icon: {fileID: 21300000, guid: d3b819076f1f0e44c99386e9a7b358b8, type: 3}
+  icon: {fileID: 21300000, guid: 434266b20e201bc48921e0a4b66319c6, type: 3}
   tier: 0
   fragmentType: 2
-  imbuement: {fileID: 0}
+  sound:
+    name: 
+    audioClip: {fileID: 8300000, guid: d6fa8af2280f2294c9cc36fdbd1c78f0, type: 3}
+    volume: 1
   combatEffect: {fileID: 11400000, guid: 52d0ee694b1b9994590d4ddebb2dd4fe, type: 2}
   fragmentOptions: {fileID: 11400000, guid: 47a6d61094d23f34ca02e049a29b0bbb, type: 2}

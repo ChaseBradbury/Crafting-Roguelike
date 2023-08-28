@@ -24,12 +24,13 @@ public class HealthController : MonoBehaviour
     public void Damage(int damage)
     {
         currentHealth -= damage;
-        UpdateSprite();
 
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             transform.GetComponent<EntityController>().HealthDrained();
         }
+        UpdateSprite();
     }
 
     public void UpdateSprite()

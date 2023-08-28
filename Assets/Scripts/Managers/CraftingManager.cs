@@ -13,24 +13,33 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] private WeaponController weaponController;
     [SerializeField] private CursorController dndCursor;
 
+    private SlotDirection hoveredSlot;
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
-            SlotDirection craftingDirection = craftingController.GetClosestSlot(Input.mousePosition);
-            SlotDirection weaponDirection = weaponController.GetClosestSlot(Input.mousePosition);
-            if (craftingDirection != SlotDirection.Null)
+            switch (hoveredSlot)
             {
-                OnMouseUpCrafting(craftingDirection);
-            }
-            else if (weaponDirection != SlotDirection.Null)
-            {
-                OnMouseUpWeapon(weaponDirection);
-            }
-            else
-            {
-                OnMouseUpInventory();
+                case SlotDirection.CraftingNorth:
+                case SlotDirection.CraftingSouth:
+                case SlotDirection.CraftingWest:
+                case SlotDirection.CraftingEast:
+                case SlotDirection.Output:
+                    OnMouseUpCrafting(hoveredSlot);
+                    break;
+                case SlotDirection.North:
+                case SlotDirection.South:
+                case SlotDirection.West:
+                case SlotDirection.East:
+                case SlotDirection.Base:
+                    OnMouseUpWeapon(hoveredSlot);
+                    break;
+                default:
+                    OnMouseUpInventory();
+                    break;
+
             }
         }
     }
@@ -109,16 +118,21 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
-    public void HoverSlot(ItemSO item)
+    public void HoverSlot(SlotDirection direction, ItemSO item)
     {
+        hoveredSlot = direction;
         if (item != null)
         {
             dndCursor.HoverItem(item);
         }
     }
 
-    public void LeaveSlot()
+    public void LeaveSlot(SlotDirection direction)
     {
+        if (hoveredSlot == direction)
+        {
+            hoveredSlot = SlotDirection.Null;
+        }
         dndCursor.LeaveItem();
     }
 }

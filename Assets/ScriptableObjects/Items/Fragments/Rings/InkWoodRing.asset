@@ -18,6 +18,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 86478edc106f9b24587a8d0f310d84b6, type: 3}
   tier: 0
   fragmentType: 2
-  imbuement: {fileID: 0}
+  sound:
+    name: 
+    audioClip: {fileID: 8300000, guid: 80da2fea525862845b2f185ecfd77e7f, type: 3}
+    volume: 1
   combatEffect: {fileID: 11400000, guid: 5b2b7a8bbe3cf3546ba1b7ba1cea9ec4, type: 2}
   fragmentOptions: {fileID: 11400000, guid: 47a6d61094d23f34ca02e049a29b0bbb, type: 2}
