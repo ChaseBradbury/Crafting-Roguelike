@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: element_metal
   itemDisplayName: Metal
-  description: 
+  description: 'The next level of staff-making.
+
+    Base Fragment: 2 Wood + 2 of
+    another element
+
+    Ring Fragment: 3 Wood + 1 of another element'
   icon: {fileID: 21300000, guid: 0af0ce867ed004149a0034c4b450c332, type: 3}
   tier: 3
+  combatEffect: {fileID: 11400000, guid: 29b3678e9aaf7eb4e8479851a76ef39a, type: 2}

@@ -11,10 +11,6 @@ public class LoadManager : MonoBehaviour
     {
         PlayerManager.CreateInventory(startingInventory);
         PlayerManager.Weapon = startingWeapon;
-        if (!PlayerManager.tutorialComplete)
-        {
-            PlayerManager.Weapon.BaseFragment = null;
-        }
         PlayerManager.StartGame();
     }
 }

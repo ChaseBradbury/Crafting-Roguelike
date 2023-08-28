@@ -15,7 +15,7 @@ public class EnemyController : EntityController
 
     void FixedUpdate()
     {
-        if (!PlayerManager.levelOver)
+        if (!PlayerManager.levelOver && PlayerManager.tutorialComplete)
         {
             status.moveTo = player.transform.position;
             status.lockMovement = false;

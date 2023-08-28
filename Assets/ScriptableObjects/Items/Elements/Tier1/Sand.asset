@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: element_sand
   itemDisplayName: Sand
-  description: 
+  description: Small rocks.
   icon: {fileID: 21300000, guid: 2d6671afe44530740b15efb89f87c872, type: 3}
   tier: 1
+  combatEffect: {fileID: 11400000, guid: f7e52267311fb154fba654b6e648663b, type: 2}

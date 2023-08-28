@@ -18,10 +18,12 @@ MonoBehaviour:
     number: 2
   - element: {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
     number: 2
+  - element: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+    number: 1
   enemies:
   - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
-    number: 10
-    additionalPerLevel: 10
+    number: 5
+    additionalPerLevel: 5
   - enemy: {fileID: 11400000, guid: b883f843ad829c94d9e2d8b225125f51, type: 2}
     number: 0
     additionalPerLevel: 1

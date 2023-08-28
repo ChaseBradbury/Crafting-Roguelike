@@ -15,6 +15,9 @@ MonoBehaviour:
   effectCode: attack_hbegg
   priority: 0
   sprite: {fileID: 21300000, guid: 2d78db598923cf84bbc214fcc0436f3b, type: 3}
+  fragmentModularName: Hard-Boiled Egg-Imbued
+  description: Hm... Didn't do much... It does a bit more damage than the regular
+    egg at least.
   repeatOptions:
     repeatable: 0
     repeatInterval: 0

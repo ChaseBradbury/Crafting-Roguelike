@@ -8,11 +8,13 @@ public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private TutorialStep[] steps;
     [SerializeField] private RectTransform tutorialContainer;
+    [SerializeField] private bool markAsComplete;
     private int currentStep = 0;
     private RectTransform tooltipTransform;
     private TextMeshProUGUI titleObject;
     private TextMeshProUGUI contentObject;
     private RectTransform arrowTransform;
+    private bool complete = false;
 
     public void Start()
     {
@@ -35,7 +37,7 @@ public class TutorialManager : MonoBehaviour
 
     public void Update()
     {
-        if (!PlayerManager.tutorialComplete)
+        if (!complete)
         {
             if (steps[currentStep].Completed)
             {
@@ -47,9 +49,13 @@ public class TutorialManager : MonoBehaviour
                 }
                 else
                 {
-                    PlayerManager.CompleteTutorial();
-                    tooltipTransform.gameObject.SetActive(!PlayerManager.tutorialComplete);
-                    arrowTransform.gameObject.SetActive(!PlayerManager.tutorialComplete);
+                    if (markAsComplete)
+                    {
+                        PlayerManager.CompleteTutorial(true);
+                    }
+                    complete = true;
+                    tooltipTransform.gameObject.SetActive(false);
+                    arrowTransform.gameObject.SetActive(false);
                 }
             }
         }

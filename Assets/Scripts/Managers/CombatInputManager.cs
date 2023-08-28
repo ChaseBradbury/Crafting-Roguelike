@@ -14,21 +14,23 @@ public class CombatInputManager : MonoBehaviour
     private WeaponMode weaponMode;
     private int weaponRingIndex = 0;
 
+    public int WeaponRingIndex { get => weaponRingIndex; set => weaponRingIndex = value; }
+
     // Start is called before the first frame update
     void Start()
     {
-        targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetGrowthRate;
+        targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[WeaponRingIndex].fragmentOptions.targetGrowthRate;
     }
 
     void FixedUpdate()
     {
-        if (!PlayerManager.levelOver)
+        if (!PlayerManager.levelOver && PlayerManager.tutorialComplete)
         {
             if (pointerHeld)
             {
                 if (targetGrowing)
                 {
-                    RingFragmentOptionSO fragmentOptions = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions;
+                    RingFragmentOptionSO fragmentOptions = PlayerManager.Weapon.RingFragments[WeaponRingIndex].fragmentOptions;
                     targetCurrentSize += targetGrowthRateCurrent;
                     targetGrowthRateCurrent *= fragmentOptions.targetGrowthAcceleration;
                     if (targetCurrentSize >= fragmentOptions.targetMaxSize)
@@ -36,15 +38,6 @@ public class CombatInputManager : MonoBehaviour
                         targetCurrentSize = fragmentOptions.targetMaxSize;
                         targetGrowing = false;
                     }
-                }
-                else
-                {
-                    // targetCurrentSize -= targetGrowthRate;
-                    // if (targetCurrentSize <= targetMinSize)
-                    // {
-                    //     targetCurrentSize = targetMinSize;
-                    //     targetGrowing = true;
-                    // }
                 }
                 target.localScale = new Vector3(targetCurrentSize, targetCurrentSize, 1);
             }
@@ -54,7 +47,7 @@ public class CombatInputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PlayerManager.levelOver)
+        if (!PlayerManager.levelOver && PlayerManager.tutorialComplete)
         {
             if (weaponMode == null && PlayerManager.Weapon != null)
             {
@@ -72,12 +65,12 @@ public class CombatInputManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                targetCurrentSize = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetMinSize;
+                targetCurrentSize = PlayerManager.Weapon.RingFragments[WeaponRingIndex].fragmentOptions.targetMinSize;
                 targetGrowing = true;
                 pointerHeld = true;
                 target.localScale = new Vector3(targetCurrentSize, targetCurrentSize, 1);
                 target.Find("Sprite").gameObject.SetActive(pointerHeld);
-                targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetGrowthRate;
+                targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[WeaponRingIndex].fragmentOptions.targetGrowthRate;
             }
             if (Input.GetMouseButtonUp(0))
             {
@@ -87,7 +80,7 @@ public class CombatInputManager : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                UpdateWeaponMode(++weaponRingIndex);
+                UpdateWeaponMode(++WeaponRingIndex);
             }
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
@@ -111,23 +104,23 @@ public class CombatInputManager : MonoBehaviour
     public void SetWeaponMode()
     {
         CenterFragmentSO center = PlayerManager.Weapon.CenterFragment;
-        RingFragmentSO ring = PlayerManager.Weapon.RingFragments[weaponRingIndex];
+        RingFragmentSO ring = PlayerManager.Weapon.RingFragments[WeaponRingIndex];
         BaseFragmentSO baseFragment = PlayerManager.Weapon.BaseFragment;
         weaponMode = new WeaponMode(center, ring, baseFragment);
     }
     public void UpdateWeaponMode(int index)
     {
         index = index % PlayerManager.Weapon.RingFragments.Length;
-        weaponRingIndex = index;
-        weaponMode.RingFragment = PlayerManager.Weapon.RingFragments[weaponRingIndex];
-        targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetGrowthRate;
+        WeaponRingIndex = index;
+        weaponMode.RingFragment = PlayerManager.Weapon.RingFragments[WeaponRingIndex];
+        targetGrowthRateCurrent = PlayerManager.Weapon.RingFragments[WeaponRingIndex].fragmentOptions.targetGrowthRate;
     }
 
     public void StartAttack(Vector2 playerPosition, Vector2 targetPosition, float size)
     {
-        float strength = 2 * size / PlayerManager.Weapon.RingFragments[weaponRingIndex].fragmentOptions.targetMaxSize;
+        float strength = 2 * size / PlayerManager.Weapon.RingFragments[WeaponRingIndex].fragmentOptions.targetMaxSize;
         Transform projectileTransform = Instantiate(projectileTemplate, transform).GetComponent<Transform>();
-        projectileTransform.GetComponent<ProjectileController>().Shoot(weaponRingIndex, playerPosition, targetPosition, size, strength);
+        projectileTransform.GetComponent<ProjectileController>().Shoot(WeaponRingIndex, playerPosition, targetPosition, size, strength);
         projectileTransform.gameObject.SetActive(true);
     }
 }

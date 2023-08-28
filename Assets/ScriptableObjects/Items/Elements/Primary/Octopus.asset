@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Octopus
   m_EditorClassIdentifier: 
   itemCode: element_octopus
-  itemDisplayName: Trapper Octopus
-  description: 
+  itemDisplayName: Octopus
+  description: A live octopus.
   icon: {fileID: 21300000, guid: bc888667a0040394ab56524c6141bde6, type: 3}
   tier: 0
+  combatEffect: {fileID: 11400000, guid: 6603c8ee64f7c464784a3c7fe349f8d4, type: 2}

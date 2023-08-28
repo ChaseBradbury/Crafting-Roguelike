@@ -10,6 +10,11 @@ public abstract class CombatEffectSO : ScriptableObject
     public int priority;
     [Tooltip("Shown above enemies affected by effect.")]
     public Sprite sprite;
+    [Tooltip("Combines with fragment option name.")]
+    public string fragmentModularName;
+    [Tooltip("Description on hover of what happens during attack.")]
+    [TextArea(3,10)]
+    public string description;
     public RepeatOptions repeatOptions;
     protected int repetitions = 0;
     protected int timeSinceLastRepeat = 0;

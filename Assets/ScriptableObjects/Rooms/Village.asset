@@ -15,13 +15,13 @@ MonoBehaviour:
   roomName: Village
   rewards:
   - element: {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-    number: 2
-  - element: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
     number: 3
+  - element: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+    number: 2
   enemies:
   - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
-    number: 30
-    additionalPerLevel: 2
+    number: 5
+    additionalPerLevel: 10
   minLevel: 0
   maxLevel: 5
   tileColor: {r: 0.50980395, g: 0.4862745, b: 0.4627451, a: 1}

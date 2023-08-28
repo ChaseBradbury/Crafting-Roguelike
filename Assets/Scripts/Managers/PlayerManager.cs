@@ -73,7 +73,7 @@ public class PlayerManager : MonoBehaviour
     }
     public static void Reset()
     {
-        currentLevel = 1;
+        currentLevel = 0;
         currentRoom = null;
         levelOver = false;
     }
@@ -95,9 +95,16 @@ public class PlayerManager : MonoBehaviour
         return PlayerPrefs.GetInt("highscore", 0);
     }
 
-    public static void CompleteTutorial()
+    public static void CompleteTutorial(bool isComplete)
     {
-        PlayerPrefs.SetInt("tutorialComplete", 1);
-        tutorialComplete = true;
+        if (isComplete)
+        {
+            PlayerPrefs.SetInt("tutorialComplete", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("tutorialComplete", 0);
+        }
+        tutorialComplete = isComplete;
     }
 }

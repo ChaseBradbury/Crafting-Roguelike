@@ -22,5 +22,6 @@ MonoBehaviour:
     name: 
     audioClip: {fileID: 8300000, guid: 0275e4a38bad0e54b9ca0d76f9f55038, type: 3}
     volume: 1
-  combatEffect: {fileID: 11400000, guid: 6c5934324a2d1c542be9a107d09e94fc, type: 2}
+  imbuement: {fileID: 11400000, guid: 2ffff10dad75593419f9621758c863bc, type: 2}
+  fragmentDisplay: {fileID: 11400000, guid: 3a85ed732407c7843a64f61415910d8a, type: 2}
   fragmentOptions: {fileID: 11400000, guid: d61775e4bed0ef641ab0d92daa9a02ea, type: 2}

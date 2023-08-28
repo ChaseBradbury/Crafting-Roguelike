@@ -6,5 +6,6 @@ public class FragmentSO : ItemSO
 {
     public FragmentType fragmentType;
     public Sound sound;
-    public CombatEffectSO combatEffect;
+    public ElementSO imbuement;
+    public FragmentDisplaySO fragmentDisplay;
 }

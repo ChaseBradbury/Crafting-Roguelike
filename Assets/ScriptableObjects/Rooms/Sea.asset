@@ -20,11 +20,11 @@ MonoBehaviour:
     number: 2
   enemies:
   - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
-    number: 30
+    number: 10
     additionalPerLevel: 3
   - enemy: {fileID: 11400000, guid: b883f843ad829c94d9e2d8b225125f51, type: 2}
     number: 2
-    additionalPerLevel: 1
+    additionalPerLevel: 2
   minLevel: 2
   maxLevel: 12
   tileColor: {r: 0.62352943, g: 0.8666667, b: 0.7921569, a: 1}

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: element_hbegg
   itemDisplayName: Hardboiled Egg
-  description: 
+  description: A harder egg that was boiled.
   icon: {fileID: 21300000, guid: 2d78db598923cf84bbc214fcc0436f3b, type: 3}
   tier: 3
+  combatEffect: {fileID: 11400000, guid: 0d9c5cedf28078744964f8ecb08181f5, type: 2}

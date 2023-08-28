@@ -44,8 +44,21 @@ public class CursorController : MonoBehaviour
     public void HoverItem(ItemSO item)
     {
         tooltipTransform.gameObject.SetActive(true);
-        titleTransform.GetComponent<TextMeshProUGUI>().text = item.itemDisplayName;
-        contentTransform.GetComponent<TextMeshProUGUI>().text = item.description;
+        string description = item.description;
+        string name = item.itemDisplayName;
+        ElementSO itemAsElement = item as ElementSO;
+        if (itemAsElement != null)
+        {
+            description += "\nWhen imbued on a staff: " + itemAsElement.combatEffect.description;
+        }
+        FragmentSO itemAsFragment = item as FragmentSO;
+        if (itemAsFragment != null)
+        {
+            name = itemAsFragment.imbuement.combatEffect.fragmentModularName + " " + itemAsFragment.fragmentDisplay.fragmentModularName;
+            description = itemAsFragment.imbuement.combatEffect.description + "\n" + itemAsFragment.fragmentDisplay.description;
+        }
+        titleTransform.GetComponent<TextMeshProUGUI>().text = name;
+        contentTransform.GetComponent<TextMeshProUGUI>().text = description;
     }
 
     public void LeaveItem()

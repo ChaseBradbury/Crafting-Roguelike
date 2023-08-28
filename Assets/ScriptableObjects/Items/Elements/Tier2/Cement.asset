@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: element_cement
   itemDisplayName: Cement
-  description: 
+  description: Hardens around something to lock it in place.
   icon: {fileID: 21300000, guid: d3b819076f1f0e44c99386e9a7b358b8, type: 3}
   tier: 2
+  combatEffect: {fileID: 11400000, guid: 68cc752735b289f4ca60400ec6c88ed7, type: 2}

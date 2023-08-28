@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: element_flame
   itemDisplayName: Flame
-  description: 
+  description: FIRE!
   icon: {fileID: 21300000, guid: b57eadc8e2461f847aa1c2ffaa2a5c3a, type: 3}
   tier: 2
+  combatEffect: {fileID: 11400000, guid: 9291b776aba52dd4fa3ee465f07adedd, type: 2}

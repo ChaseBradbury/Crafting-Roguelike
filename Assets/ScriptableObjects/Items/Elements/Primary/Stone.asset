@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: element_stone
   itemDisplayName: Stone
-  description: 
+  description: A rock. The most basic element used to craft other elements.
   icon: {fileID: 21300000, guid: 434266b20e201bc48921e0a4b66319c6, type: 3}
   tier: 0
+  combatEffect: {fileID: 11400000, guid: 52d0ee694b1b9994590d4ddebb2dd4fe, type: 2}

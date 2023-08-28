@@ -17,7 +17,7 @@ public class TutorialToggleController : MonoBehaviour
 
     public void Toggle()
     {
-        PlayerManager.tutorialComplete = !PlayerManager.tutorialComplete;
+        PlayerManager.CompleteTutorial(!PlayerManager.tutorialComplete);
         UpdateUI(PlayerManager.tutorialComplete);
     }
 

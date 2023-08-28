@@ -43,6 +43,7 @@ public class ProjectileController : MonoBehaviour
         enemyDictionary = new Dictionary<string, EnemyController>();
         this.attackStrength = attackStrength;
         AudioManager.PlayAttack(PlayerManager.Weapon.BaseFragment.sound, attackStrength);
+        transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = PlayerManager.Weapon.BaseFragment.imbuement.icon;
     }
 
     public void RunBy()
@@ -77,7 +78,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (!enemyDictionary.ContainsKey(enemy.Id + fragment.itemCode))
         {
-            enemy.AddEffect(fragment.combatEffect, attackStrength, targetPosition);
+            enemy.AddEffect(fragment.imbuement.combatEffect, attackStrength, targetPosition);
             enemyDictionary.Add(enemy.Id + fragment.itemCode, enemy);
         }
     }

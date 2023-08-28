@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Woods
   rewards:
+  - element: {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+    number: 1
   - element: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
-    number: 6
+    number: 4
   enemies:
   - enemy: {fileID: 11400000, guid: 2cc103e57abc9694f8a08af67b5ad2c6, type: 2}
     number: 2
-    additionalPerLevel: 1
+    additionalPerLevel: 2
   minLevel: 0
   maxLevel: 15
   tileColor: {r: 0.6156863, g: 0.4862745, b: 0.31764707, a: 1}

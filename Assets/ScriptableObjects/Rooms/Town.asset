@@ -24,7 +24,7 @@ MonoBehaviour:
     additionalPerLevel: 0
   - enemy: {fileID: 11400000, guid: 2cc103e57abc9694f8a08af67b5ad2c6, type: 2}
     number: 2
-    additionalPerLevel: 2
+    additionalPerLevel: 3
   minLevel: 8
   maxLevel: 25
   tileColor: {r: 0.43529412, g: 0.47843137, b: 0.49019608, a: 1}
