@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     public static int CurrentLevel { get => currentLevel; set => currentLevel = value; }
     public static bool tutorialComplete = false;
     public static bool levelOver = false;
+    public static bool paused = false;
 
     private void Awake()
     {
@@ -31,6 +32,11 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public static bool IsPaused()
+    {
+        return levelOver || !tutorialComplete || paused;
     }
 
     public static void CreateInventory(ItemSO[] items)
@@ -76,6 +82,7 @@ public class PlayerManager : MonoBehaviour
         currentLevel = 0;
         currentRoom = null;
         levelOver = false;
+        paused = false;
     }
 
     public static void StartGame()

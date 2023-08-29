@@ -8,7 +8,6 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private float centerSize = 150f;
     [SerializeField] private float ringSize = 400f;
     [SerializeField] private float baseSize = 250f;
-    [SerializeField] private FragmentSlotController centerFragmentSlot;
     [SerializeField] private FragmentSlotController northFragmentSlot;
     [SerializeField] private FragmentSlotController eastFragmentSlot;
     [SerializeField] private FragmentSlotController southFragmentSlot;
@@ -20,7 +19,6 @@ public class WeaponController : MonoBehaviour
     {
         if (!initialized && PlayerManager.Weapon != null)
         {
-            AddToSlot(SlotDirection.Center, PlayerManager.Weapon.CenterFragment);
             AddToSlot(SlotDirection.North, PlayerManager.Weapon.RingFragments[0]);
             AddToSlot(SlotDirection.East, PlayerManager.Weapon.RingFragments[1]);
             AddToSlot(SlotDirection.South, PlayerManager.Weapon.RingFragments[2]);
@@ -32,7 +30,7 @@ public class WeaponController : MonoBehaviour
 
     public SlotDirection GetClosestSlot(Vector3 mousePosition)
     {
-        float distanceFromCenter = Vector2.Distance(mousePosition, centerFragmentSlot.transform.position);
+        float distanceFromCenter = Vector2.Distance(mousePosition, northFragmentSlot.transform.position);
         float distanceFromBase = Vector2.Distance(mousePosition, baseFragmentSlot.transform.position);
         if (distanceFromCenter < centerSize)
         {
@@ -40,7 +38,7 @@ public class WeaponController : MonoBehaviour
         }
         else if (distanceFromCenter < ringSize)
         {
-            return Utils.FindDirectionQuadrant(mousePosition, centerFragmentSlot.transform.position);
+            return Utils.FindDirectionQuadrant(mousePosition, northFragmentSlot.transform.position);
         }
         else if (distanceFromBase < baseSize)
         {
@@ -74,8 +72,6 @@ public class WeaponController : MonoBehaviour
     {
         switch (direction)
         {
-            case SlotDirection.Center:
-                return centerFragmentSlot;
             case SlotDirection.North:
                 return northFragmentSlot;
             case SlotDirection.East:

@@ -31,8 +31,7 @@ public class RoomSelectController : MonoBehaviour
 
     public void OpenRoomSelect()
     {
-        
-
+        CraftingManager.Instance.EmptyCraftingTable();
         hideableTransform.gameObject.SetActive(true);
     }
 

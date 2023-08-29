@@ -15,6 +15,11 @@ public class CraftingManager : MonoBehaviour
 
     private SlotDirection hoveredSlot;
 
+    void Awake()
+    {
+        Instance = this;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -134,5 +139,25 @@ public class CraftingManager : MonoBehaviour
             hoveredSlot = SlotDirection.Null;
         }
         dndCursor.LeaveItem();
+    }
+
+    public void EmptyCraftingTable()
+    {
+        if (!craftingController.IsSlotEmpty(SlotDirection.CraftingNorth))
+        {
+            PlayerManager.Inventory.AddItem(craftingController.RemoveFromSlot(SlotDirection.CraftingNorth), 1);
+        }
+        if (!craftingController.IsSlotEmpty(SlotDirection.CraftingSouth))
+        {
+            PlayerManager.Inventory.AddItem(craftingController.RemoveFromSlot(SlotDirection.CraftingSouth), 1);
+        }
+        if (!craftingController.IsSlotEmpty(SlotDirection.CraftingEast))
+        {
+            PlayerManager.Inventory.AddItem(craftingController.RemoveFromSlot(SlotDirection.CraftingEast), 1);
+        }
+        if (!craftingController.IsSlotEmpty(SlotDirection.CraftingWest))
+        {
+            PlayerManager.Inventory.AddItem(craftingController.RemoveFromSlot(SlotDirection.CraftingWest), 1);
+        }
     }
 }

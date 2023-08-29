@@ -13,7 +13,7 @@ public class AvatarController : EntityController
 
     void FixedUpdate()
     {
-        if (!PlayerManager.levelOver)
+        if (!PlayerManager.IsPaused())
         {
             DoContinuousEffects();
         }

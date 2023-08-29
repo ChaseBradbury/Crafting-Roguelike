@@ -18,4 +18,9 @@ public class MainMenuController : MonoBehaviour
         PlayerManager.SaveHighscore(resetScore);
         score.text = resetScore.ToString();
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

@@ -22,15 +22,18 @@ public class ProjectileController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        pathLerpPosition += PlayerManager.Weapon.BaseFragment.fragmentOptions.projectileSpeed;
-        if (pathLerpPosition >= 1)
+        if (!PlayerManager.IsPaused())
         {
-            Impact();
-        }
-        else
-        {
-            transform.position = Vector2.Lerp(startPosition, targetPosition, pathLerpPosition);
-            RunBy();
+            pathLerpPosition += PlayerManager.Weapon.BaseFragment.fragmentOptions.projectileSpeed;
+            if (pathLerpPosition >= 1)
+            {
+                Impact();
+            }
+            else
+            {
+                transform.position = Vector2.Lerp(startPosition, targetPosition, pathLerpPosition);
+                RunBy();
+            }
         }
     }
 

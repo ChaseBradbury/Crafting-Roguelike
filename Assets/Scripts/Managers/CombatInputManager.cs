@@ -24,7 +24,7 @@ public class CombatInputManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!PlayerManager.levelOver && PlayerManager.tutorialComplete)
+        if (!PlayerManager.IsPaused())
         {
             if (pointerHeld)
             {
@@ -47,7 +47,7 @@ public class CombatInputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PlayerManager.levelOver && PlayerManager.tutorialComplete)
+        if (!PlayerManager.IsPaused())
         {
             if (weaponMode == null && PlayerManager.Weapon != null)
             {
@@ -103,10 +103,9 @@ public class CombatInputManager : MonoBehaviour
 
     public void SetWeaponMode()
     {
-        CenterFragmentSO center = PlayerManager.Weapon.CenterFragment;
         RingFragmentSO ring = PlayerManager.Weapon.RingFragments[WeaponRingIndex];
         BaseFragmentSO baseFragment = PlayerManager.Weapon.BaseFragment;
-        weaponMode = new WeaponMode(center, ring, baseFragment);
+        weaponMode = new WeaponMode(ring, baseFragment);
     }
     public void UpdateWeaponMode(int index)
     {

@@ -6,21 +6,11 @@ using UnityEngine;
 [Serializable]
 public class Weapon
 {
-    [SerializeField] private CenterFragmentSO centerFragment;
     [SerializeField] private RingFragmentSO[] ringFragments = new RingFragmentSO[4];
     [SerializeField] private BaseFragmentSO baseFragment;
 
-    public CenterFragmentSO CenterFragment { get => centerFragment; set => centerFragment = value; }
     public RingFragmentSO[] RingFragments { get => ringFragments; set => ringFragments = value; }
     public BaseFragmentSO BaseFragment { get => baseFragment; set => baseFragment = value; }
-
-    public void UpdateCenter(CenterFragmentSO fragment)
-    {
-        if (fragment.fragmentType == FragmentType.Center)
-        {
-            CenterFragment = fragment;
-        }
-    }
 
     public void UpdateRing(RingFragmentSO fragment, SlotDirection direction)
     {
@@ -58,9 +48,6 @@ public class Weapon
         {
             case SlotDirection.Base:
                 UpdateBase(fragment as BaseFragmentSO);
-                break;
-            case SlotDirection.Center:
-                UpdateCenter(fragment as CenterFragmentSO);
                 break;
             case SlotDirection.North:
             case SlotDirection.East:
