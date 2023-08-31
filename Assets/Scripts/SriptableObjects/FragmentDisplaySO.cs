@@ -10,4 +10,6 @@ public class FragmentDisplaySO : ScriptableObject
     [Tooltip("Description on hover of what happens during attack.")]
     [TextArea(3,10)]
     public string description;
+    [Tooltip("Replaces background of slot in inventory")]
+    public Sprite background;
 }

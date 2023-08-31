@@ -12,6 +12,7 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] private CraftingController craftingController;
     [SerializeField] private WeaponController weaponController;
     [SerializeField] private CursorController dndCursor;
+    [SerializeField] private CursorFlyController flyCursor;
 
     private SlotDirection hoveredSlot;
 
@@ -49,6 +50,15 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
+    public void AddToInventory(ItemSO item)
+    {
+        PlayerManager.Inventory.AddItem(item, 1);
+        inventoryController.RefreshUI();
+        Vector2 flyTarget = inventoryController.GetPositionOfInventoryItem(item);
+        flyCursor.Fly(Input.mousePosition, flyTarget, item);
+
+    }
+
     public void OnMouseDownInventoryItem(ItemSO item)
     {
         if (heldItem == null)
@@ -65,7 +75,7 @@ public class CraftingManager : MonoBehaviour
     {
         if (heldItem != null)
         {
-            PlayerManager.Inventory.AddItem(heldItem, 1);
+            AddToInventory(heldItem);
             dndCursor.DropItem();
             heldItem = null;
             AudioManager.PlayPlaceSound();
@@ -76,8 +86,12 @@ public class CraftingManager : MonoBehaviour
 
     public void OnMouseUpCrafting(SlotDirection direction)
     {
-        if (heldItem != null && craftingController.IsSlotEmpty(direction))
+        if (heldItem != null)
         {
+            if (!craftingController.IsSlotEmpty(direction))
+            {
+                AddToInventory(craftingController.RemoveFromSlot(direction));
+            }
             craftingController.AddToSlot(direction, heldItem);
             dndCursor.DropItem();
             heldItem = null;
@@ -113,9 +127,14 @@ public class CraftingManager : MonoBehaviour
     {
         if (heldItem != null && weaponController.WillAcceptItem(direction, heldItem))
         {
+            if (!weaponController.IsSlotEmpty(direction))
+            {
+                AddToInventory(weaponController.RemoveFromSlot(direction));
+            }
             weaponController.AddToSlot(direction, heldItem as FragmentSO);
             dndCursor.DropItem();
             heldItem = null;
+            AudioManager.PlaySwapSound();
         }
         else
         {

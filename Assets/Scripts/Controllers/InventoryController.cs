@@ -35,11 +35,12 @@ public class InventoryController : MonoBehaviour
         foreach (Transform child in inventoryContent) { Destroy(child.gameObject); }
         int x = 0;
         int y = 0;
-        foreach (KeyValuePair<string, InventoryItem> inventoryItem in PlayerManager.Inventory.Items.OrderBy(i => i.Value.itemSO.tier).ThenBy(i => i.Value.itemSO.itemDisplayName))
+        foreach (InventoryItem inventoryItem in PlayerManager.Inventory.GetOrderedList())
         {
-            ItemSO item = inventoryItem.Value.itemSO;
-            int amount = inventoryItem.Value.amount;
+            ItemSO item = inventoryItem.itemSO;
+            int amount = inventoryItem.amount;
             RectTransform itemTransform = Instantiate(itemTemplate, inventoryContent).GetComponent<RectTransform>();
+            itemTransform.transform.name = item.itemCode;
             itemTransform.gameObject.SetActive(true);
             itemTransform.anchoredPosition = new Vector2(x*slotSize.x + offset.x, -y*slotSize.y - offset.y);
             itemTransform.GetComponent<InventorySlotController>().AddSlotItem(item);
@@ -57,5 +58,19 @@ public class InventoryController : MonoBehaviour
                 ++y;
             }
         }
+    }
+
+    public Transform GetTransformOfInventoryItem(ItemSO item)
+    {
+        return inventoryContent.Find(item.itemCode);
+    }
+
+    public Vector2 GetPositionOfInventoryItem(ItemSO item)
+    {
+        Transform itemTransform = GetTransformOfInventoryItem(item);
+        RectTransform rectTransform = itemTransform.GetComponent<RectTransform>();
+        float x = itemTransform.position.x + rectTransform.rect.width/2;
+        float y = itemTransform.position.y - rectTransform.rect.height/2;
+        return new Vector2(x, y);
     }
 }

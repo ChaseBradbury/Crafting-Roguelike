@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory
@@ -35,5 +36,23 @@ public class Inventory
                 items.Remove(item.itemCode);
             }
         }
+    }
+
+    public int GetItemIndex(ItemSO item)
+    {
+        int i = 0;
+        foreach (InventoryItem inventoryItem in GetOrderedList())
+        {
+            if (inventoryItem.itemSO.itemCode == item.itemCode)
+            {
+                return i++;
+            }
+        }
+        return -1;
+    }
+
+    public List<InventoryItem> GetOrderedList()
+    {
+        return Items.Values.OrderBy(i => i.itemSO.tier).ThenBy(i => i.itemSO.itemDisplayName).ToList();
     }
 }

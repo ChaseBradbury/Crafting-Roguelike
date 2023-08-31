@@ -21,6 +21,7 @@ public class RoomSelectController : MonoBehaviour
                 possibleRooms.Add(room);
             }
         }
+        Utils.Shuffle(possibleRooms);
         for (int i = 0; i < roomIndices.Length; ++i)
         {
             roomIndices[i] = Random.Range(0, possibleRooms.Count);
@@ -38,7 +39,14 @@ public class RoomSelectController : MonoBehaviour
     public void CreateRoomOption(int index)
     {
         RoomSelectOptionController selectOptionController = Instantiate(roomSelectTemplate, roomOptionAreas[index]).GetComponent<RoomSelectOptionController>();
-        selectOptionController.SetRoom(possibleRooms[roomIndices[index]]);
+        if (possibleRooms.Count > index)
+        {
+            selectOptionController.SetRoom(possibleRooms[index]);
+        }
+        else
+        {
+            selectOptionController.SetRoom(possibleRooms[possibleRooms.Count - 1]);
+        }
         selectOptionController.gameObject.SetActive(true);
     }
 }

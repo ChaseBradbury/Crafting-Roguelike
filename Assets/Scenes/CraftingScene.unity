@@ -216,6 +216,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 8
+  backgroundSprite: {fileID: 0}
   fragmentTypeAccepted: 2
 --- !u!114 &55876245
 MonoBehaviour:
@@ -383,13 +384,15 @@ GameObject:
   - component: {fileID: 94899218}
   - component: {fileID: 94899217}
   - component: {fileID: 94899219}
+  - component: {fileID: 94899220}
+  - component: {fileID: 94899221}
   m_Layer: 0
-  m_Name: PlayerManager
+  m_Name: Develop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &94899217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94899216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 862.0628, y: 563.67084, z: -4.006653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -437,11 +440,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3da852edb82958a43bee46f650cd2beb, type: 2}
     baseFragment: {fileID: 11400000, guid: 419e371f1923149499a717ba4e1d0a72, type: 2}
   startingInventory:
-  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
-  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
-  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
-  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
-  - {fileID: 11400000, guid: c22f602f849d16545934b33a910de669, type: 2}
+  - {fileID: 11400000, guid: 0ba1e98893aefc74a94d8b26de1393c7, type: 2}
+  - {fileID: 11400000, guid: 0ba1e98893aefc74a94d8b26de1393c7, type: 2}
+  - {fileID: 11400000, guid: 0ba1e98893aefc74a94d8b26de1393c7, type: 2}
+  - {fileID: 11400000, guid: 0ba1e98893aefc74a94d8b26de1393c7, type: 2}
+  - {fileID: 11400000, guid: 0ba1e98893aefc74a94d8b26de1393c7, type: 2}
   - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
   - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
   - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
@@ -489,6 +492,33 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a91100aa309257c47b56c03b32df64da, type: 2}
   - {fileID: 11400000, guid: a91100aa309257c47b56c03b32df64da, type: 2}
   - {fileID: 11400000, guid: a91100aa309257c47b56c03b32df64da, type: 2}
+--- !u!114 &94899220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94899216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b53f0fd0a072fb41ac8b4e8f5d33345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadmanager: {fileID: 94899219}
+--- !u!114 &94899221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94899216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a14924911cc334eb03146b6cca002e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
+  musics: []
 --- !u!1 &108079290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,6 +1485,56 @@ RectTransform:
   m_AnchoredPosition: {x: -538.5, y: 273.8}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &342873119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 342873120}
+  - component: {fileID: 342873121}
+  m_Layer: 5
+  m_Name: Flyer Cursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &342873120
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342873119}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1285572874}
+  m_Father: {fileID: 1566283796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &342873121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342873119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cec8d1b3aa520d428b5227ea28ddf50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flyFrames: 25
 --- !u!1 &354846291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,6 +2520,7 @@ MonoBehaviour:
   craftingController: {fileID: 1036726549}
   weaponController: {fileID: 1020665298}
   dndCursor: {fileID: 354846295}
+  flyCursor: {fileID: 342873121}
 --- !u!4 &720494244
 Transform:
   m_ObjectHideFlags: 0
@@ -2682,6 +2763,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 0
+  backgroundSprite: {fileID: 21300000, guid: cab14af0308427d4580240b33083b5e8, type: 3}
 --- !u!1 &818494834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,6 +2892,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 7
+  backgroundSprite: {fileID: 0}
   fragmentTypeAccepted: 2
 --- !u!114 &866983487
 MonoBehaviour:
@@ -3083,6 +3166,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 5
+  backgroundSprite: {fileID: 0}
   fragmentTypeAccepted: 2
 --- !u!114 &947757717
 MonoBehaviour:
@@ -3740,6 +3824,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 9
+  backgroundSprite: {fileID: 21300000, guid: cab14af0308427d4580240b33083b5e8, type: 3}
 --- !u!114 &1178022859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4425,6 +4510,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 2
+  backgroundSprite: {fileID: 21300000, guid: cab14af0308427d4580240b33083b5e8, type: 3}
 --- !u!1 &1209716847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4805,6 +4891,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 4
+  backgroundSprite: {fileID: 21300000, guid: cab14af0308427d4580240b33083b5e8, type: 3}
 --- !u!1 &1274129567
 GameObject:
   m_ObjectHideFlags: 0
@@ -4938,6 +5025,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274129567}
+  m_CullTransparentMesh: 1
+--- !u!1 &1285572873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1285572874}
+  - component: {fileID: 1285572876}
+  - component: {fileID: 1285572875}
+  m_Layer: 5
+  m_Name: Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1285572874
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285572873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 342873120}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1285572875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285572873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1285572876
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285572873}
   m_CullTransparentMesh: 1
 --- !u!1 &1355453669
 GameObject:
@@ -5304,6 +5466,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 0
+  backgroundSprite: {fileID: 0}
   fragmentTypeAccepted: 1
 --- !u!114 &1479320090
 MonoBehaviour:
@@ -5642,6 +5805,7 @@ RectTransform:
   m_Children:
   - {fileID: 354846292}
   - {fileID: 1497585061}
+  - {fileID: 342873120}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5742,6 +5906,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 11
+  backgroundSprite: {fileID: 0}
   fragmentTypeAccepted: 3
 --- !u!114 &1585495807
 MonoBehaviour:
@@ -6100,6 +6265,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 1
+  backgroundSprite: {fileID: 21300000, guid: cab14af0308427d4580240b33083b5e8, type: 3}
 --- !u!1 &1666295662
 GameObject:
   m_ObjectHideFlags: 0
@@ -6193,6 +6359,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 6
+  backgroundSprite: {fileID: 0}
   fragmentTypeAccepted: 2
 --- !u!114 &1666295667
 MonoBehaviour:
@@ -6510,6 +6677,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: 9f86df2c2e5dd3247aa210f0426e0e55, type: 3}
   craftingManager: {fileID: 720494243}
   direction: 3
+  backgroundSprite: {fileID: 21300000, guid: cab14af0308427d4580240b33083b5e8, type: 3}
 --- !u!1 &1762449520
 GameObject:
   m_ObjectHideFlags: 0
@@ -8089,7 +8257,7 @@ SceneRoots:
   - {fileID: 1561583449}
   - {fileID: 776876145}
   - {fileID: 1566283796}
-  - {fileID: 94899218}
   - {fileID: 720494244}
   - {fileID: 1708540779}
   - {fileID: 5428601531380910721}
+  - {fileID: 94899218}

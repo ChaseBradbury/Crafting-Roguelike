@@ -10,6 +10,9 @@ public abstract class SlotController<T> : MonoBehaviour  where T : ItemSO
     [SerializeField] protected CraftingManager craftingManager;
     private List<TutorialStep> tutorialSteps;
     [SerializeField] protected SlotDirection direction;
+    [SerializeField] protected Sprite backgroundSprite;
+    private Image icon;
+    private Image background;
 
 
     public T ItemSO { get => itemSO; set => itemSO = value; }
@@ -17,6 +20,12 @@ public abstract class SlotController<T> : MonoBehaviour  where T : ItemSO
     public void Awake()
     {
         tutorialSteps = new List<TutorialStep>();
+        icon = transform.Find("Icon").GetComponent<Image>();
+        Transform bgTransform = transform.Find("Background");
+        if (bgTransform != null)
+        {
+            background = transform.Find("Background").GetComponent<Image>();
+        }
     }
 
     public bool IsSlotEmpty()
@@ -28,15 +37,30 @@ public abstract class SlotController<T> : MonoBehaviour  where T : ItemSO
     {
         CheckTutorialSteps(true);
         itemSO = item;
-        transform.Find("Icon").GetComponent<Image>().sprite = itemSO.icon;
-        
+        icon.sprite = itemSO.icon;
+        if (background != null)
+        {
+            FragmentSO fragment = item as FragmentSO;
+            if (fragment != null)
+            {
+                background.sprite = fragment.fragmentDisplay.background;
+            }
+            else
+            {
+                background.sprite = backgroundSprite;
+            }
+        }
     }
 
     public T RemoveSlotItem()
     {
         T tmpItem = itemSO;
         itemSO = null;
-        transform.Find("Icon").GetComponent<Image>().sprite = emptySprite;
+        icon.sprite = emptySprite;
+        if (background != null)
+        {
+            background.sprite = backgroundSprite;
+        }
         return tmpItem;
     }
 

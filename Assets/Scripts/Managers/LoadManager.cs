@@ -13,4 +13,10 @@ public class LoadManager : MonoBehaviour
         PlayerManager.Weapon = startingWeapon;
         PlayerManager.StartGame();
     }
+
+    public void LoadNew()
+    {
+        PlayerManager.CreateInventory(startingInventory);
+        PlayerManager.Weapon = startingWeapon;
+    }
 }

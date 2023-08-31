@@ -69,6 +69,11 @@ public class AudioManager : MonoBehaviour
         PlayRandom("craft", 4);
     }
 
+    public static void PlaySwapSound()
+    {
+        PlayRandom("swap", 1);
+    }
+
     public static void PlayPlaceSound()
     {
         PlayRandom("place", 3);

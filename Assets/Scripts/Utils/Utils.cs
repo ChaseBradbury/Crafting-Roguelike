@@ -4,6 +4,16 @@ using UnityEngine;
 
 public static class Utils
 {
+
+    public static void Shuffle<T>(this IList<T> list)  
+    {
+        for (int i = 0; i < list.Count; i++) {
+            T temp = list[i];
+            int randomIndex = Random.Range(i, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        } 
+    }
     public static SlotDirection FindDirectionQuadrant(Vector2 point, Vector2 center)
     {
         float xDist = point.x - center.x;

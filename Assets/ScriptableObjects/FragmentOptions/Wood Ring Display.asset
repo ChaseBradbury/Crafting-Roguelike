@@ -15,3 +15,4 @@ MonoBehaviour:
   fragmentModularName: Wood Ring
   description: A ring fragment of the staff. You can cycle through the 4 rings while
     in combat.
+  background: {fileID: 21300000, guid: 778011e897e32674aace86b742fde318, type: 3}

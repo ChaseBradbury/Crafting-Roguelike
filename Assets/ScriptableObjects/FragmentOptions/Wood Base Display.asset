@@ -15,3 +15,4 @@ MonoBehaviour:
   fragmentModularName: Wood Staff
   description: The base of the staff. The combat effect imbued on this fragment will
     be applied to enemies in its path.
+  background: {fileID: 21300000, guid: 778011e897e32674aace86b742fde318, type: 3}

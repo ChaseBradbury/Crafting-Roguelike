@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Corvid Arcana
+  m_text: Corvus Arcana
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a214ebf6221b9464297f23fdcaceff09, type: 2}
   m_sharedMaterial: {fileID: 6114017084337378420, guid: a214ebf6221b9464297f23fdcaceff09, type: 2}
@@ -1970,6 +1970,9 @@ MonoBehaviour:
     volume: 1
   - name: button
     audioClip: {fileID: 8300000, guid: 13e7c24ae13387947adea5f5dfd2f08d, type: 3}
+    volume: 1
+  - name: swap0
+    audioClip: {fileID: 8300000, guid: a987380b86f5cee4a95fdd0c77ae19b6, type: 3}
     volume: 1
   musics:
   - name: menu

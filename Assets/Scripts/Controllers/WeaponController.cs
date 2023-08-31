@@ -68,6 +68,30 @@ public class WeaponController : MonoBehaviour
         return false;
     }
 
+    public ItemSO RemoveFromSlot(SlotDirection direction)
+    {
+        FragmentSlotController slotController = GetSlotController(direction);
+        ItemSO item = null;
+        if (slotController != null)
+        {
+            item = slotController.RemoveSlotItem();
+        }
+        return item;
+    }
+
+    public bool IsSlotEmpty(SlotDirection direction)
+    {
+        FragmentSlotController slotController = GetSlotController(direction);
+        if (slotController != null)
+        {
+            return slotController.IsSlotEmpty();
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public FragmentSlotController GetSlotController(SlotDirection direction)
     {
         switch (direction)
