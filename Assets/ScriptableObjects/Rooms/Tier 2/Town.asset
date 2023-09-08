@@ -10,18 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2262570c83602e042a9bfe636cc8e7b1, type: 3}
-  m_Name: Desert
+  m_Name: Town
   m_EditorClassIdentifier: 
-  roomName: Desert
+  roomName: Town
   rewards:
-  - element: {fileID: 11400000, guid: 0ba1e98893aefc74a94d8b26de1393c7, type: 2}
-    number: 1
   - element: {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-    number: 3
+    number: 5
+  - element: {fileID: 11400000, guid: 502df1f14e9b97147a9221d6549da9eb, type: 2}
+    number: 2
   enemies:
+  - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
+    number: 25
+    additionalPerLevel: 5
   - enemy: {fileID: 11400000, guid: 2cc103e57abc9694f8a08af67b5ad2c6, type: 2}
-    number: 6
-    additionalPerLevel: 1
-  minLevel: 7
-  maxLevel: 22
-  tileColor: {r: 0.80784315, g: 0.6627451, b: 0.48235294, a: 1}
+    number: 5
+    additionalPerLevel: 2
+  minLevel: 10
+  maxLevel: 19
+  tileColor: {r: 0.43529412, g: 0.47843137, b: 0.49019608, a: 1}

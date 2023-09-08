@@ -10,18 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2262570c83602e042a9bfe636cc8e7b1, type: 3}
-  m_Name: Village
+  m_Name: Ocean
   m_EditorClassIdentifier: 
-  roomName: Village
+  roomName: Ocean
   rewards:
-  - element: {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - element: {fileID: 11400000, guid: 0ba1e98893aefc74a94d8b26de1393c7, type: 2}
     number: 3
-  - element: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+  - element: {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
+    number: 5
+  - element: {fileID: 11400000, guid: a91100aa309257c47b56c03b32df64da, type: 2}
     number: 2
   enemies:
   - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
-    number: 5
+    number: 100
+    additionalPerLevel: 20
+  - enemy: {fileID: 11400000, guid: 2cc103e57abc9694f8a08af67b5ad2c6, type: 2}
+    number: 20
     additionalPerLevel: 10
-  minLevel: 0
-  maxLevel: 5
-  tileColor: {r: 0.50980395, g: 0.4862745, b: 0.4627451, a: 1}
+  minLevel: 15
+  maxLevel: 25
+  tileColor: {r: 0.02745098, g: 0.20392157, b: 0.22352941, a: 1}

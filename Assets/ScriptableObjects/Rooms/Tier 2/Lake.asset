@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2262570c83602e042a9bfe636cc8e7b1, type: 3}
-  m_Name: Ocean
+  m_Name: Lake
   m_EditorClassIdentifier: 
-  roomName: Ocean
+  roomName: Lake
   rewards:
-  - element: {fileID: 11400000, guid: 0ba1e98893aefc74a94d8b26de1393c7, type: 2}
-    number: 3
   - element: {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
-    number: 5
+    number: 4
   - element: {fileID: 11400000, guid: a91100aa309257c47b56c03b32df64da, type: 2}
     number: 2
   enemies:
   - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
-    number: 100
-    additionalPerLevel: 20
-  minLevel: 19
-  maxLevel: 25
-  tileColor: {r: 0.02745098, g: 0.20392157, b: 0.22352941, a: 1}
+    number: 20
+    additionalPerLevel: 7
+  - enemy: {fileID: 11400000, guid: b883f843ad829c94d9e2d8b225125f51, type: 2}
+    number: 3
+    additionalPerLevel: 5
+  minLevel: 10
+  maxLevel: 19
+  tileColor: {r: 0.25490198, g: 0.42352942, b: 0.5686275, a: 1}

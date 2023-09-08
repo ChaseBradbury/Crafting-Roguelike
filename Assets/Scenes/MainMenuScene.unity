@@ -1721,8 +1721,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3da852edb82958a43bee46f650cd2beb, type: 2}
     baseFragment: {fileID: 11400000, guid: 419e371f1923149499a717ba4e1d0a72, type: 2}
   startingInventory:
-  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-  - {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
+  - {fileID: 11400000, guid: 02371e38f88daab47898aa00953a477b, type: 2}
+  - {fileID: 11400000, guid: 02371e38f88daab47898aa00953a477b, type: 2}
   - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
   - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
   - {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}

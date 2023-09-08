@@ -10,21 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2262570c83602e042a9bfe636cc8e7b1, type: 3}
-  m_Name: Town
+  m_Name: Woods
   m_EditorClassIdentifier: 
-  roomName: Town
+  roomName: Woods
   rewards:
-  - element: {fileID: 11400000, guid: 0dd60325ce5520147af9538ccfde9a01, type: 2}
-    number: 5
-  - element: {fileID: 11400000, guid: 502df1f14e9b97147a9221d6549da9eb, type: 2}
-    number: 2
+  - element: {fileID: 11400000, guid: 02371e38f88daab47898aa00953a477b, type: 2}
+    number: 1
+  - element: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+    number: 4
   enemies:
   - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
-    number: 40
-    additionalPerLevel: 0
-  - enemy: {fileID: 11400000, guid: 2cc103e57abc9694f8a08af67b5ad2c6, type: 2}
-    number: 2
-    additionalPerLevel: 3
-  minLevel: 8
-  maxLevel: 25
-  tileColor: {r: 0.43529412, g: 0.47843137, b: 0.49019608, a: 1}
+    number: 3
+    additionalPerLevel: 2
+  minLevel: 0
+  maxLevel: 9
+  tileColor: {r: 0.6156863, g: 0.4862745, b: 0.31764707, a: 1}

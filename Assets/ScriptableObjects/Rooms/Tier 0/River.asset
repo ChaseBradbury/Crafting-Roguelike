@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2262570c83602e042a9bfe636cc8e7b1, type: 3}
-  m_Name: Lake
+  m_Name: River
   m_EditorClassIdentifier: 
-  roomName: Lake
+  roomName: River
   rewards:
+  - element: {fileID: 11400000, guid: 02371e38f88daab47898aa00953a477b, type: 2}
+    number: 1
   - element: {fileID: 11400000, guid: bc4c182fa3400b5469fd42f08cd9612b, type: 2}
-    number: 4
-  - element: {fileID: 11400000, guid: a91100aa309257c47b56c03b32df64da, type: 2}
     number: 2
+  - element: {fileID: 11400000, guid: ae03c56053374b840829e63eb78496f3, type: 2}
+    number: 1
   enemies:
   - enemy: {fileID: 11400000, guid: 0c693d9b02261db48b1e5cd8c348b323, type: 2}
-    number: 60
-    additionalPerLevel: 10
-  - enemy: {fileID: 11400000, guid: b883f843ad829c94d9e2d8b225125f51, type: 2}
-    number: 10
+    number: 3
     additionalPerLevel: 2
-  minLevel: 10
-  maxLevel: 12
-  tileColor: {r: 0.25490198, g: 0.42352942, b: 0.5686275, a: 1}
+  minLevel: 0
+  maxLevel: 9
+  tileColor: {r: 0.5686275, g: 0.6784314, b: 0.8352941, a: 1}

@@ -3336,6 +3336,7 @@ MonoBehaviour:
   recipes:
   - {fileID: 11400000, guid: d15740f730f4e7f49b490b1e3c62f335, type: 2}
   - {fileID: 11400000, guid: fbfe334b70eef6a479b002c293ca7edd, type: 2}
+  - {fileID: 11400000, guid: 781d8ae4cbe603e4c81815c2d819503e, type: 2}
   - {fileID: 11400000, guid: d25d0e35a6ee365469f31b67a33b2395, type: 2}
   - {fileID: 11400000, guid: 698287ad907b5df49a2ada036a71e221, type: 2}
   - {fileID: 11400000, guid: 20bbe9e1fe8011a43ad470e5b040bd92, type: 2}
@@ -3371,6 +3372,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9fa5ae0027d90c2429ce4aab4dfa05c7, type: 2}
   - {fileID: 11400000, guid: 1262e5aa3d9187744b5b3ac1e85457e2, type: 2}
   - {fileID: 11400000, guid: f39385faa639d514bbf693dd305c0470, type: 2}
+  - {fileID: 11400000, guid: aa8e6b72561994f4faeb7c821566994b, type: 2}
+  - {fileID: 11400000, guid: a01c0ee3b0ca6674fbd6aec8a01da39d, type: 2}
 --- !u!1 &1052871734
 GameObject:
   m_ObjectHideFlags: 0
@@ -6019,6 +6022,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 66da809943adf1d4094828fa8bd20f34, type: 2}
   - {fileID: 11400000, guid: c75611f7174b17b4baf9b181f6e21344, type: 2}
   - {fileID: 11400000, guid: da8c7b9510fb816469f0407c67195f2a, type: 2}
+  - {fileID: 11400000, guid: d56678e9ec1de124dafed250ca06d87a, type: 2}
 --- !u!1 &1624045584
 GameObject:
   m_ObjectHideFlags: 0
@@ -6475,8 +6479,8 @@ MonoBehaviour:
     completeOnPlace: 1
   - transform: {fileID: 1978730575}
     title: Assembling the Staff
-    content: 'Dragging a ring fragment to one the these slots will replace the fragment
-      there. CAUTION: You won''t get the replaced fragment back.'
+    content: Dragging a ring fragment to one the these slots will replace the fragment
+      there. The old one will be placed in your inventory.
     placement: 0
     completeOnPlace: 0
   - transform: {fileID: 726791600}
@@ -6487,8 +6491,8 @@ MonoBehaviour:
     completeOnPlace: 1
   - transform: {fileID: 336678611}
     title: Crafting Elements
-    content: You can also create new elements by crafting. For example, 2 Stone will
-      create a Spark.
+    content: You can also create new elements by crafting. For example, 2 Pebbles
+      will create a Spark.
     placement: 2
     completeOnPlace: 1
   - transform: {fileID: 818494835}
